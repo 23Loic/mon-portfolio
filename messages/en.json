@@ -1,0 +1,44 @@
+{
+  "Navbar": {
+    "role": "Portfolio",
+    "contactMe": "Contact Me",
+    "portfolio": "Portfolio",
+    "back": "Retour"
+  },
+  "Home": {
+    "location": "Paris, France",
+    "role_line1": "Computer Science Student",
+    "role_line2": "& Apprentice Developer.",
+    "description": "Welcome to my digital space. I design and develop modern web solutions, combining technique and creativity during my apprenticeship at Linedata.",
+    "title": "Computer Science Student & Apprentice Developer",
+    "enterButton": "ENTER"
+  },
+  "Menu": {
+    "about": {
+      "title": "ABOUT ME",
+      "subtitle": "Who am I?",
+      "description": "My journey, my skills, and my vision. Discover the human behind the code."
+    },
+    "projects": {
+      "title": "MY PROJECTS",
+      "subtitle": "Portfolio",
+      "description": "A selection of my academic, professional, and personal projects."
+    },
+    "explorer": "EXPLORE"
+  },
+"Contact": {
+  "title": "Get in Touch",
+  "subtitle": "Have an idea? A question? Or just want to say hi? I am always open to new opportunities.",
+  "emailLabel": "Send me an email",
+  "copied": "Copied!",
+  "socials": "My Socials",
+  "form": {
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "send": "SEND MESSAGE",
+    "sending": "SENDING...",
+    "success": "Message Sent!"
+    }
+  }
+}

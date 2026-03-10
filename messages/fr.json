@@ -1,0 +1,45 @@
+{
+  "Navbar": {
+    "role": "Portfolio",
+    "contactMe": "Me Contacter",
+    "portfolio": "Portfolio",
+    "back": "Retour"
+  },
+  "Home": {
+    "location": "Paris, France",
+    "role_line1": "Étudiant en Informatique",
+    "role_line2": "& Apprenti Développeur.",
+    "description": "Bienvenue dans mon espace numérique. Je conçois et développe des solutions web modernes, alliant technique et créativité lors de mon alternance chez Linedata.",
+    "title": "Etudiant en Informatique & Apprenti Développeur",
+    "enterButton" : "ENTRER"
+  },
+  "Menu": {
+
+    "about": {
+        "title": "À PROPOS",
+        "subtitle": "Qui suis-je ?",
+        "description": "Mon parcours, mes compétences et ma vision. Découvrez l'humain derrière le code."
+    },
+    "projects": {
+        "title": "MES PROJETS",
+        "subtitle": "Portfolio",
+        "description": "Une sélection de mes travaux académiques, professionnels et personnels."
+    },
+    "explorer": "EXPLORER"
+  },
+"Contact": {
+  "title": "Me Contacter",
+  "subtitle": "Une idée ? Une question ? Ou juste envie de dire bonjour ? Je suis toujours à l'écoute de nouvelles opportunités.",
+  "emailLabel": "M'envoyer un mail",
+  "copied": "Copié !",
+  "socials": "Mes Réseaux",
+  "form": {
+    "name": "Votre Nom",
+    "email": "Votre Email",
+    "message": "Votre Message",
+    "send": "ENVOYER LE MESSAGE",
+    "sending": "ENVOI...",
+    "success": "Message Envoyé !"
+    }
+  }
+}

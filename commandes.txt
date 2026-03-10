@@ -1,0 +1,32 @@
+### CHEAT SHEET - COMMANDES UTILES POUR LE PORTFOLIO ###
+
+---
+## GESTION DU PROJET (NPM)
+---
+# Pour lancer le site en mode développement (avec rechargement automatique)
+# C'est la commande que tu utiliseras 99% du temps.
+npm run dev
+
+# Pour construire la version finale et optimisée de ton site
+# À faire avant de mettre le site en ligne.
+npm run build
+
+# Pour tester la version finale (après un 'npm run build') sur ton ordinateur
+npm start
+
+# Pour ajouter une nouvelle bibliothèque/outil à ton projet
+# Exemple : npm install lucide-react
+npm install <nom-de-la-bibliothèque>
+
+
+---
+## SAUVEGARDE DU CODE (GIT & GITHUB)
+---
+# Étape 1 : Préparer tous les fichiers modifiés pour la sauvegarde
+git add .
+
+# Étape 2 : Créer la sauvegarde locale avec un message descriptif
+git commit -m "Décris ici ce que tu as fait"
+
+# Étape 3 : Envoyer tes sauvegardes locales sur ton dépôt GitHub en ligne
+git push
