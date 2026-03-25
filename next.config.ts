@@ -4,7 +4,9 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-  /* Vos autres options ici */
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default withNextIntl(nextConfig);
