@@ -34,7 +34,7 @@ export default function ProjectsPage() {
       </div>
 
       <div className="relative z-10 pt-32 pb-20 max-w-[1400px] mx-auto px-6 md:px-10">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }} className="mb-16">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] as const }} className="mb-16">
           <span className="font-mono text-[10px] tracking-[0.4em] uppercase block mb-4" style={{ color: 'var(--color-accent)' }}>
             Portfolio
           </span>

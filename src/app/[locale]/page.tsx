@@ -31,7 +31,7 @@ export default function Home() {
 
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.25, 1, 0.5, 1] } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.25, 1, 0.5, 1] as const } }
   };
 
   const fadeIn = {
@@ -60,7 +60,7 @@ export default function Home() {
       <motion.div
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
-        transition={{ duration: 1.5, delay: 0.5, ease: [0.25, 1, 0.5, 1] }}
+        transition={{ duration: 1.5, delay: 0.5, ease: [0.25, 1, 0.5, 1] as const }}
         className="absolute top-1/2 left-0 w-full h-px origin-left"
         style={{ background: 'linear-gradient(to right, transparent, var(--color-border), transparent)' }}
       />

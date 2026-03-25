@@ -72,7 +72,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
           {/* Left */}
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }} className="space-y-12">
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] as const }} className="space-y-12">
             <div>
               <span className="font-mono text-[10px] tracking-[0.4em] uppercase block mb-4" style={{ color: 'var(--color-accent)' }}>
                 Contact
@@ -144,7 +144,7 @@ export default function ContactPage() {
           </motion.div>
 
           {/* Right - Form */}
-          <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 1, 0.5, 1] }} className="lg:pt-20">
+          <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 1, 0.5, 1] as const }} className="lg:pt-20">
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
               <div>
                 <label className="font-mono text-[10px] tracking-[0.4em] uppercase block mb-2" style={{ color: 'var(--color-text-tertiary)' }}>
