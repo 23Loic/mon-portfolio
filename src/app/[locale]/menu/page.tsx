@@ -1,13 +1,10 @@
-// Fichier: src/app/menu/page.tsx
 'use client';
 
-import Navbar from "@/components/Navbar";
-import Menu from "@/components/Menu"; // Ton composant avec les rectangles
+import Menu from "@/components/Menu";
 
 export default function MenuPage() {
   return (
-    <main className="bg-black min-h-screen">
-      <Navbar />
+    <main className="min-h-screen" style={{ backgroundColor: 'var(--color-bg)' }}>
       <Menu />
     </main>
   );

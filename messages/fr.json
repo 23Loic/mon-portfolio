@@ -1,45 +1,183 @@
 {
   "Navbar": {
     "role": "Portfolio",
-    "contactMe": "Me Contacter",
+    "contactMe": "Contact",
     "portfolio": "Portfolio",
-    "back": "Retour"
+    "back": "Retour",
+    "about": "À propos",
+    "projects": "Projets",
+    "home": "Accueil"
   },
   "Home": {
-    "location": "Paris, France",
-    "role_line1": "Étudiant en Informatique",
-    "role_line2": "& Apprenti Développeur.",
-    "description": "Bienvenue dans mon espace numérique. Je conçois et développe des solutions web modernes, alliant technique et créativité lors de mon alternance chez Linedata.",
-    "title": "Etudiant en Informatique & Apprenti Développeur",
-    "enterButton" : "ENTRER"
+    "location": "Bondy, France",
+    "description": "Étudiant en BUT Informatique parcours Data — Apprenti Analyste Support chez Linedata. Je conçois des solutions alliant data, développement et intelligence artificielle.",
+    "enterButton": "Découvrir",
+    "scrollHint": "Portfolio 2026"
   },
   "Menu": {
-
     "about": {
-        "title": "À PROPOS",
-        "subtitle": "Qui suis-je ?",
-        "description": "Mon parcours, mes compétences et ma vision. Découvrez l'humain derrière le code."
+      "title": "À PROPOS",
+      "subtitle": "Qui suis-je",
+      "description": "Mon parcours, mes compétences techniques et ma vision. Découvrez l'humain derrière le code."
     },
     "projects": {
-        "title": "MES PROJETS",
-        "subtitle": "Portfolio",
-        "description": "Une sélection de mes travaux académiques, professionnels et personnels."
+      "title": "PROJETS",
+      "subtitle": "Portfolio",
+      "description": "Une sélection de mes réalisations académiques, professionnelles et personnelles."
     },
-    "explorer": "EXPLORER"
+    "explorer": "Explorer"
   },
-"Contact": {
-  "title": "Me Contacter",
-  "subtitle": "Une idée ? Une question ? Ou juste envie de dire bonjour ? Je suis toujours à l'écoute de nouvelles opportunités.",
-  "emailLabel": "M'envoyer un mail",
-  "copied": "Copié !",
-  "socials": "Mes Réseaux",
-  "form": {
-    "name": "Votre Nom",
-    "email": "Votre Email",
-    "message": "Votre Message",
-    "send": "ENVOYER LE MESSAGE",
-    "sending": "ENVOI...",
-    "success": "Message Envoyé !"
+  "About": {
+    "heading": "Plus qu'un simple",
+    "headingAccent": "Code.",
+    "subtitle": "Découvrez qui je suis, ce que je maîtrise et d'où je viens.",
+    "tabs": {
+      "bio": "Mon Histoire",
+      "skills": "Compétences",
+      "timeline": "Parcours"
+    },
+    "bio": {
+      "title": "L'humain derrière le code",
+      "p1": "Passionné par l'informatique depuis mon plus jeune âge, j'ai toujours cherché à comprendre comment fonctionnaient les choses derrière l'écran.",
+      "p2": "Aujourd'hui, je ne me contente plus de comprendre : je construis. Étudiant en 3e année de BUT Informatique parcours Data à l'IUT Créteil-Vitry, je combine la rigueur académique avec les défis du monde réel chez Linedata, où je suis apprenti Analyste Support.",
+      "p3": "Mon objectif ? Intégrer un master en informatique pour approfondir mes compétences en développement, data et intelligence artificielle, et à terme concevoir des solutions qui allient rigueur technique et impact métier."
+    },
+    "skills": {
+      "data": {
+        "name": "Exploitation des données",
+        "items": "SQL, NoSQL, Excel, Power BI, Web Scraping, Pandas, Oracle, PL/SQL"
+      },
+      "dev": {
+        "name": "Développement logiciel & Web",
+        "items": "Python, Java, C, C++, HTML, CSS, JavaScript, PHP, React, Angular, Next.js"
+      },
+      "tools": {
+        "name": "Outils & Environnement",
+        "items": "Git, Docker, VS Code, Virtualenv, WampServer, Jupyter Notebook"
+      },
+      "systems": {
+        "name": "Systèmes & Réseaux",
+        "items": "Linux, Windows, Bash, Oracle VM, TCP/IP, OSPF"
+      },
+      "ai": {
+        "name": "IA & Data Engineering",
+        "items": "Agno, PostGIS, Neo4j, pgvector, RAG, Agents IA"
+      }
+    },
+    "timeline": {
+      "t1": {
+        "year": "Sept. 2025 — Sept. 2026",
+        "role": "Apprenti Analyste Support",
+        "company": "Linedata",
+        "desc": "Analyse et résolution d'incidents techniques sur un progiciel financier (crédit, leasing). Développement d'évolutions en Java, SQL, PL/SQL, Angular. Intervention sur l'infrastructure Unix/Oracle."
+      },
+      "t2": {
+        "year": "Avril — Juin 2025",
+        "role": "Stagiaire Développeur & Admin BDD",
+        "company": "Campus des entrepreneurs",
+        "desc": "Conception d'une base de données centralisée et migration automatisée. Connexion API avec des plateformes externes. Tableau de bord temps réel et automatisation de rapports."
+      },
+      "t3": {
+        "year": "2023 — 2026",
+        "role": "BUT Informatique parcours Data",
+        "company": "IUT Créteil-Vitry (UPEC)",
+        "desc": "Administration, gestion et exploitation des données. Projets en IA, développement web et data engineering."
+      },
+      "t4": {
+        "year": "2021 — 2023",
+        "role": "Licence Mathématiques",
+        "company": "Université Gustave Eiffel",
+        "desc": "Formation en mathématiques fondamentales et appliquées."
+      },
+      "t5": {
+        "year": "2021",
+        "role": "Baccalauréat Général — Mention Bien",
+        "company": "Lycée Louise Michel",
+        "desc": "Spécialités Mathématiques, Physique-Chimie et Maths Expertes."
+      }
+    },
+    "hobbies": {
+      "title": "En dehors du code",
+      "items": [
+        {
+          "icon": "♟",
+          "label": "Échecs"
+        },
+        {
+          "icon": "🎮",
+          "label": "Jeux vidéo"
+        },
+        {
+          "icon": "🏀",
+          "label": "Basket & Musculation"
+        },
+        {
+          "icon": "🎧",
+          "label": "Musique"
+        },
+        {
+          "icon": "✈️",
+          "label": "Voyages (à venir)"
+        }
+      ]
     }
+  },
+  "Projects": {
+    "heading": "Mes",
+    "headingAccent": "Réalisations.",
+    "subtitle": "Une sélection de mes travaux académiques et professionnels.",
+    "filters": {
+      "all": "Tout",
+      "web": "Web",
+      "data": "Data / IA",
+      "pro": "Pro"
+    },
+    "viewProject": "Voir le projet",
+    "viewCode": "Code",
+    "items": {
+      "p1": {
+        "title": "Système Multi-Agents IA — Surveillance Aéroportuaire",
+        "description": "Architecture IA avec Agno : orchestration d'agents autonomes et workflows RAG pour l'analyse contextuelle. Pipeline de données hybride vers une architecture multi-modèle.",
+        "tags": "Python, Agno, PostGIS, Neo4j, React, pgvector"
+      },
+      "p2": {
+        "title": "Application Web Météo",
+        "description": "Application de visualisation des mesures météo en France. API, architecture MVC, tableau de bord interactif avec Chart.js.",
+        "tags": "Java, PHP, MySQL, JavaScript, Chart.js, HTML/CSS"
+      },
+      "p3": {
+        "title": "Base de données & Dashboard — Campus",
+        "description": "Base de données centralisée, migration automatisée, connexion API et tableau de bord temps réel avec automatisation de rapports.",
+        "tags": "Python, MySQL, Excel, API REST"
+      },
+      "p4": {
+        "title": "Progiciel Financier — Linedata",
+        "description": "Analyse et résolution d'incidents techniques sur progiciel financier. Développement d'évolutions et intervention sur l'infrastructure Unix/Oracle.",
+        "tags": "Java, SQL, PL/SQL, XML, Angular, Unix, Oracle"
+      }
+    },
+    "private": "Privé"
+  },
+  "Contact": {
+    "title": "Me Contacter",
+    "subtitle": "Une idée, une question, ou simplement envie de discuter ? Je suis toujours ouvert aux nouvelles opportunités.",
+    "emailLabel": "Email",
+    "copied": "Copié !",
+    "socials": "Réseaux",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "message": "Message",
+      "send": "Envoyer",
+      "sending": "Envoi...",
+      "success": "Message envoyé !",
+      "error": "Erreur, réessayez."
+    },
+    "phoneLabel": "Téléphone",
+    "copy": "Copier"
+  },
+  "Cv": {
+    "viewCv": "Voir mon CV",
+    "myCv": "Mon CV"
   }
 }

@@ -1,180 +1,141 @@
 'use client';
 
 import { useState } from 'react';
-import Navbar from "@/components/Navbar";
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// --- TYPE DE DONNÉES ---
-// Tu pourras déplacer ça dans un JSON plus tard si tu veux
-type Project = {
-  id: number;
-  title: string;
-  category: 'web' | 'mobile' | 'data';
-  description: string;
-  tags: string[];
-  videoUrl: string; // Chemin vers le fichier dans public/
-  link?: string;    // Lien GitHub ou Live (Optionnel)
-};
+type Project = { id: string; category: 'web' | 'data' | 'pro'; number: string; github?: string; };
 
-// --- DONNÉES FACTICES (À REMPLACER) ---
 const projectsData: Project[] = [
-  {
-    id: 1,
-    title: "E-Commerce Dashboard",
-    category: "web",
-    description: "Une interface d'administration complète avec graphiques en temps réel et gestion de stocks.",
-    tags: ["Next.js", "Tailwind", "Recharts"],
-    videoUrl: "/projects/demo-1.mp4", // Mets une vidéo ici
-    link: "https://github.com/..."
-  },
-  {
-    id: 2,
-    title: "Task Manager App",
-    category: "mobile",
-    description: "Application de gestion de tâches avec synchronisation cloud et mode hors-ligne.",
-    tags: ["React Native", "Firebase"],
-    videoUrl: "/projects/demo-2.mp4",
-    link: "https://github.com/..."
-  },
-  {
-    id: 3,
-    title: "AI Image Generator",
-    category: "data",
-    description: "Générateur d'images basé sur l'API OpenAI avec une interface fluide.",
-    tags: ["Python", "FastAPI", "React"],
-    videoUrl: "/projects/demo-3.mp4",
-  },
-  {
-    id: 4,
-    title: "Portfolio v1",
-    category: "web",
-    description: "Mon tout premier portfolio réalisé en HTML/CSS pur.",
-    tags: ["HTML", "SASS", "JS"],
-    videoUrl: "/projects/demo-4.mp4",
-  }
+  { id: 'p1', category: 'data', number: '01', github: 'https://github.com/23Loic' },
+  { id: 'p2', category: 'web', number: '02', github: 'https://github.com/23Loic' },
+  { id: 'p3', category: 'pro', number: '03' },
+  { id: 'p4', category: 'pro', number: '04' },
 ];
 
 export default function ProjectsPage() {
-  const t = useTranslations('Menu.projects'); // Pense à ajouter les traductions si besoin
-  const [filter, setFilter] = useState<'all' | 'web' | 'mobile' | 'data'>('all');
+  const t = useTranslations('Projects');
+  const [filter, setFilter] = useState<'all' | 'web' | 'data' | 'pro'>('all');
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
-  // Filtrage des projets
-  const filteredProjects = projectsData.filter(p => 
-    filter === 'all' ? true : p.category === filter
-  );
+  const filtered = projectsData.filter(p => filter === 'all' || p.category === filter);
+
+  const filters = [
+    { id: 'all' as const, label: t('filters.all') },
+    { id: 'web' as const, label: t('filters.web') },
+    { id: 'data' as const, label: t('filters.data') },
+    { id: 'pro' as const, label: t('filters.pro') },
+  ];
 
   return (
-    <main className="min-h-screen bg-[#121212] text-white selection:bg-orange-500/30">
-      <Navbar />
-
-      {/* Fond d'ambiance */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px]" />
+    <main className="min-h-screen relative">
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="orb orb-primary w-[600px] h-[600px] absolute top-[-10%] right-[20%] animate-float-slow" />
       </div>
 
-      <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
-        
-        {/* --- EN-TÊTE --- */}
-        <div className="text-center mb-16 space-y-4">
-          <h1 className="text-4xl md:text-6xl font-bold">
-            Mes <span className="text-orange-500">Réalisations.</span>
+      <div className="relative z-10 pt-32 pb-20 max-w-[1400px] mx-auto px-6 md:px-10">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }} className="mb-16">
+          <span className="font-mono text-[10px] tracking-[0.4em] uppercase block mb-4" style={{ color: 'var(--color-accent)' }}>
+            Portfolio
+          </span>
+          <h1 className="heading-lg font-heading mb-4">
+            {t('heading')} <span className="text-gradient">{t('headingAccent')}</span>
           </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Une sélection de mes travaux récents. Survolez les cartes pour voir les projets en action.
+          <p className="font-body text-lg max-w-lg leading-relaxed mb-10" style={{ color: 'var(--color-text-secondary)' }}>
+            {t('subtitle')}
           </p>
 
-          {/* --- FILTRES --- */}
-          <div className="flex flex-wrap justify-center gap-2 mt-8">
-            {[
-              { id: 'all', label: 'Tout voir' },
-              { id: 'web', label: 'Web Dev' },
-              { id: 'mobile', label: 'Mobile' },
-              { id: 'data', label: 'Data / IA' }
-            ].map((f) => (
-              <button
-                key={f.id}
-                onClick={() => setFilter(f.id as any)}
-                className={`px-5 py-2 rounded-full text-sm font-bold border transition-all duration-300 ${
-                  filter === f.id 
-                    ? 'bg-orange-500 border-orange-500 text-white' 
-                    : 'bg-transparent border-white/10 text-gray-400 hover:border-white hover:text-white'
-                }`}
-              >
+          <div className="flex flex-wrap gap-2">
+            {filters.map((f) => (
+              <button key={f.id} onClick={() => setFilter(f.id)}
+                className="px-5 py-2 rounded-full text-xs font-heading font-semibold tracking-[0.15em] uppercase border transition-all duration-300"
+                style={{
+                  backgroundColor: filter === f.id ? 'var(--color-accent)' : 'transparent',
+                  borderColor: filter === f.id ? 'var(--color-accent)' : 'var(--color-border)',
+                  color: filter === f.id ? 'var(--color-pill-active-text)' : 'var(--color-text-tertiary)',
+                }}>
                 {f.label}
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* --- GRILLE DE PROJETS --- */}
-        <motion.div 
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          <AnimatePresence>
-            {filteredProjects.map((project) => (
-              <motion.div
-                layout
-                key={project.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="group relative h-[400px] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 shadow-2xl"
-              >
-                {/* 1. LA VIDÉO EN ARRIÈRE-PLAN */}
-                <div className="absolute inset-0 z-0">
-                  {/* Si tu n'as pas encore les vidéos, remplace <video> par une <img> temporaire */}
-                  <img 
-                    src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=2070" 
-                    className="w-full h-full object-cover ..." 
-                    />
-                  {/* Overlay dégradé pour que le texte reste lisible */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
-                </div>
+        <motion.div layout className="space-y-1">
+          <AnimatePresence mode="popLayout">
+            {filtered.map((project, idx) => (
+              <motion.div layout key={project.id}
+                initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                onMouseEnter={() => setHoveredId(project.id)} onMouseLeave={() => setHoveredId(null)}
+                className="group relative">
 
-                {/* 2. LE CONTENU (TEXTE) */}
-                <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end">
-                  
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="text-xs font-bold px-2 py-1 bg-orange-500/90 text-white rounded-md">
-                        {tag}
-                      </span>
-                    ))}
+                <div className="grid grid-cols-12 gap-4 md:gap-8 items-center py-8 md:py-10 -mx-4 px-4 rounded-xl transition-all duration-500 cursor-default"
+                  style={{
+                    borderBottom: '1px solid var(--color-border)',
+                    backgroundColor: hoveredId === project.id ? 'var(--color-card-hover)' : 'transparent',
+                  }}>
+                  <div className="col-span-2 md:col-span-1">
+                    <span className="font-heading font-bold text-3xl md:text-4xl transition-colors duration-500"
+                      style={{ color: hoveredId === project.id ? 'var(--color-accent)' : 'var(--color-border)' }}>
+                      {project.number}
+                    </span>
                   </div>
 
-                  {/* Titre & Description */}
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-orange-500 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm line-clamp-3 group-hover:text-gray-200 transition-colors">
-                    {project.description}
-                  </p>
+                  <div className="col-span-10 md:col-span-4">
+                    <h3 className="font-heading font-bold text-lg md:text-xl transition-colors duration-300"
+                      style={{ color: hoveredId === project.id ? 'var(--color-text)' : 'var(--color-text-secondary)' }}>
+                      {t(`items.${project.id}.title`)}
+                    </h3>
+                  </div>
 
-                  {/* Bouton Lien (Apparaît au hover) */}
-                  {project.link && (
-                    <div className="mt-6 h-0 overflow-hidden group-hover:h-auto transition-all duration-500">
-                      <a 
-                        href={project.link} 
-                        target="_blank"
-                        className="inline-flex items-center gap-2 text-sm font-bold text-white border-b border-orange-500 pb-1 hover:text-orange-500 transition-colors"
-                      >
-                        Voir le projet
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  <div className="hidden md:block md:col-span-5">
+                    <p className="font-body text-sm leading-relaxed transition-colors duration-300"
+                      style={{ color: hoveredId === project.id ? 'var(--color-text-secondary)' : 'var(--color-text-tertiary)' }}>
+                      {t(`items.${project.id}.description`)}
+                    </p>
+                  </div>
+
+                  <div className="hidden md:flex md:col-span-2 justify-end">
+                    {project.github ? (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] uppercase transition-all duration-300"
+                        style={{ color: 'var(--color-accent)', opacity: hoveredId === project.id ? 1 : 0 }}
+                        onClick={(e) => e.stopPropagation()}>
+                        {t('viewCode')}
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
                       </a>
-                    </div>
-                  )}
+                    ) : (
+                      <span className="font-mono text-[10px] tracking-[0.2em] uppercase transition-all duration-300"
+                        style={{ color: 'var(--color-text-tertiary)', opacity: hoveredId === project.id ? 1 : 0 }}>
+                        {t('private')}
+                      </span>
+                    )}
+                  </div>
                 </div>
 
+                <AnimatePresence>
+                  {hoveredId === project.id && (
+                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }} className="overflow-hidden -mx-4 px-4">
+                      <div className="flex flex-wrap gap-2 pb-6 pl-0 md:pl-[calc(8.333%+2rem)]">
+                        {t(`items.${project.id}.tags`).split(', ').map((tag: string) => (
+                          <span key={tag} className="px-3 py-1 text-[10px] font-mono tracking-wider uppercase rounded-full t-tag border">
+                            {tag}
+                          </span>
+                        ))}
+                        <p className="md:hidden w-full font-body text-sm mt-3 leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
+                          {t(`items.${project.id}.description`)}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
-
       </div>
     </main>
   );

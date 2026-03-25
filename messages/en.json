@@ -1,44 +1,183 @@
 {
   "Navbar": {
     "role": "Portfolio",
-    "contactMe": "Contact Me",
+    "contactMe": "Contact",
     "portfolio": "Portfolio",
-    "back": "Retour"
+    "back": "Back",
+    "about": "About",
+    "projects": "Projects",
+    "home": "Home"
   },
   "Home": {
-    "location": "Paris, France",
-    "role_line1": "Computer Science Student",
-    "role_line2": "& Apprentice Developer.",
-    "description": "Welcome to my digital space. I design and develop modern web solutions, combining technique and creativity during my apprenticeship at Linedata.",
-    "title": "Computer Science Student & Apprentice Developer",
-    "enterButton": "ENTER"
+    "location": "Bondy, France",
+    "description": "Computer Science student (Data track) — Apprentice Support Analyst at Linedata. I build solutions at the intersection of data, development, and artificial intelligence.",
+    "enterButton": "Explore",
+    "scrollHint": "Portfolio 2026"
   },
   "Menu": {
     "about": {
-      "title": "ABOUT ME",
-      "subtitle": "Who am I?",
-      "description": "My journey, my skills, and my vision. Discover the human behind the code."
+      "title": "ABOUT",
+      "subtitle": "Who am I",
+      "description": "My journey, technical skills, and vision. Discover the human behind the code."
     },
     "projects": {
-      "title": "MY PROJECTS",
+      "title": "PROJECTS",
       "subtitle": "Portfolio",
       "description": "A selection of my academic, professional, and personal projects."
     },
-    "explorer": "EXPLORE"
+    "explorer": "Explore"
   },
-"Contact": {
-  "title": "Get in Touch",
-  "subtitle": "Have an idea? A question? Or just want to say hi? I am always open to new opportunities.",
-  "emailLabel": "Send me an email",
-  "copied": "Copied!",
-  "socials": "My Socials",
-  "form": {
-    "name": "Your Name",
-    "email": "Your Email",
-    "message": "Your Message",
-    "send": "SEND MESSAGE",
-    "sending": "SENDING...",
-    "success": "Message Sent!"
+  "About": {
+    "heading": "More than just",
+    "headingAccent": "Code.",
+    "subtitle": "Discover who I am, what I master, and where I come from.",
+    "tabs": {
+      "bio": "My Story",
+      "skills": "Skills",
+      "timeline": "Journey"
+    },
+    "bio": {
+      "title": "The human behind the code",
+      "p1": "Passionate about computer science since a young age, I've always sought to understand how things work behind the screen.",
+      "p2": "Today, I don't just understand — I build. As a 3rd-year Computer Science student (Data track) at IUT Créteil-Vitry, I combine academic rigor with real-world challenges at Linedata, where I work as an apprentice Support Analyst.",
+      "p3": "My goal? Join a master's program in computer science to deepen my skills in development, data and artificial intelligence, and ultimately build solutions that combine technical rigor with real business impact."
+    },
+    "skills": {
+      "data": {
+        "name": "Data Engineering",
+        "items": "SQL, NoSQL, Excel, Power BI, Web Scraping, Pandas, Oracle, PL/SQL"
+      },
+      "dev": {
+        "name": "Software & Web Development",
+        "items": "Python, Java, C, C++, HTML, CSS, JavaScript, PHP, React, Angular, Next.js"
+      },
+      "tools": {
+        "name": "Tools & Environment",
+        "items": "Git, Docker, VS Code, Virtualenv, WampServer, Jupyter Notebook"
+      },
+      "systems": {
+        "name": "Systems & Networks",
+        "items": "Linux, Windows, Bash, Oracle VM, TCP/IP, OSPF"
+      },
+      "ai": {
+        "name": "AI & Data Engineering",
+        "items": "Agno, PostGIS, Neo4j, pgvector, RAG, AI Agents"
+      }
+    },
+    "timeline": {
+      "t1": {
+        "year": "Sept. 2025 — Sept. 2026",
+        "role": "Apprentice Support Analyst",
+        "company": "Linedata",
+        "desc": "Analysis and resolution of technical incidents on financial software (credit, leasing). Feature development in Java, SQL, PL/SQL, Angular. Unix/Oracle infrastructure work."
+      },
+      "t2": {
+        "year": "April — June 2025",
+        "role": "Developer & DB Admin Intern",
+        "company": "Campus des entrepreneurs",
+        "desc": "Centralized database design with automated migration. API integration with external platforms. Real-time dashboard and automated reports."
+      },
+      "t3": {
+        "year": "2023 — 2026",
+        "role": "B.Tech in Computer Science (Data)",
+        "company": "IUT Créteil-Vitry (UPEC)",
+        "desc": "Data administration, management and engineering. Projects in AI, web development and data engineering."
+      },
+      "t4": {
+        "year": "2021 — 2023",
+        "role": "Mathematics Degree",
+        "company": "Université Gustave Eiffel",
+        "desc": "Fundamental and applied mathematics."
+      },
+      "t5": {
+        "year": "2021",
+        "role": "High School Diploma — With Honours",
+        "company": "Lycée Louise Michel",
+        "desc": "Specialties: Mathematics, Physics-Chemistry, Advanced Mathematics."
+      }
+    },
+    "hobbies": {
+      "title": "Outside of code",
+      "items": [
+        {
+          "icon": "♟",
+          "label": "Chess"
+        },
+        {
+          "icon": "🎮",
+          "label": "Video games"
+        },
+        {
+          "icon": "🏀",
+          "label": "Basketball & Weightlifting"
+        },
+        {
+          "icon": "🎧",
+          "label": "Music"
+        },
+        {
+          "icon": "✈️",
+          "label": "Travel (soon)"
+        }
+      ]
     }
+  },
+  "Projects": {
+    "heading": "My",
+    "headingAccent": "Work.",
+    "subtitle": "A selection of my academic and professional projects.",
+    "filters": {
+      "all": "All",
+      "web": "Web",
+      "data": "Data / AI",
+      "pro": "Pro"
+    },
+    "viewProject": "View project",
+    "viewCode": "Code",
+    "items": {
+      "p1": {
+        "title": "Multi-Agent AI System — Airport Surveillance",
+        "description": "AI architecture with Agno: orchestration of autonomous agents and RAG workflows for contextual analysis. Hybrid data pipeline to a multi-model architecture.",
+        "tags": "Python, Agno, PostGIS, Neo4j, React, pgvector"
+      },
+      "p2": {
+        "title": "Weather Web Application",
+        "description": "Weather data visualization across France. API retrieval, MVC backend, interactive dashboard with Chart.js.",
+        "tags": "Java, PHP, MySQL, JavaScript, Chart.js, HTML/CSS"
+      },
+      "p3": {
+        "title": "Database & Dashboard — Campus",
+        "description": "Centralized database with automated migration, API integration and real-time dashboard with automated reporting.",
+        "tags": "Python, MySQL, Excel, REST API"
+      },
+      "p4": {
+        "title": "Financial Software — Linedata",
+        "description": "Analysis and resolution of technical incidents on financial software. Feature development and Unix/Oracle infrastructure work.",
+        "tags": "Java, SQL, PL/SQL, XML, Angular, Unix, Oracle"
+      }
+    },
+    "private": "Private"
+  },
+  "Contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have an idea, a question, or just want to chat? I'm always open to new opportunities.",
+    "emailLabel": "Email",
+    "copied": "Copied!",
+    "socials": "Socials",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending...",
+      "success": "Message sent!",
+      "error": "Error, please retry."
+    },
+    "phoneLabel": "Phone",
+    "copy": "Copy"
+  },
+  "Cv": {
+    "viewCv": "View my resume",
+    "myCv": "My Resume"
   }
 }

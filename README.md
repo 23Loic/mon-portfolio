@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Loïc Bouvil — Portfolio
 
-## Getting Started
+Portfolio personnel construit avec Next.js 15, Tailwind CSS, Framer Motion et next-intl.
 
-First, run the development server:
+## Stack
+
+- **Framework** : Next.js 15 (App Router)
+- **Styling** : Tailwind CSS 3
+- **Animations** : Framer Motion
+- **i18n** : next-intl (FR / EN)
+- **Contact** : EmailJS
+- **Fonts** : Syne, DM Sans, JetBrains Mono
+
+## Démarrage rapide
 
 ```bash
+# Installer les dépendances
+npm install
+
+# Lancer en développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build de production
+npm run build
+
+# Tester le build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configuration EmailJS
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Crée un compte sur [emailjs.com](https://www.emailjs.com/)
+2. Ajoute un service email (Gmail)
+3. Crée un template avec les variables : `{{from_name}}`, `{{from_email}}`, `{{message}}`
+4. Remplace les 3 clés dans `src/app/[locale]/contact/page.tsx` :
+   - `YOUR_SERVICE_ID`
+   - `YOUR_TEMPLATE_ID`
+   - `YOUR_PUBLIC_KEY`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Déploiement sur Vercel
 
-## Learn More
+1. Push ton code sur GitHub
+2. Va sur [vercel.com](https://vercel.com) et connecte ton compte GitHub
+3. Importe le repository
+4. Vercel détecte automatiquement Next.js → clique "Deploy"
+5. Ton site est en ligne !
 
-To learn more about Next.js, take a look at the following resources:
+Pour un domaine personnalisé : Settings → Domains → Ajoute ton domaine.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/
+│   ├── globals.css          # Design system
+│   └── [locale]/
+│       ├── layout.tsx        # Layout principal + Navbar
+│       ├── page.tsx          # Landing page
+│       ├── menu/page.tsx     # Hub de navigation
+│       ├── about/page.tsx    # À propos + compétences + parcours
+│       ├── projects/page.tsx # Projets
+│       └── contact/page.tsx  # Contact + formulaire EmailJS
+├── components/
+│   ├── Navbar.tsx            # Navigation
+│   ├── Menu.tsx              # Menu split-screen
+│   └── CvViewer.tsx          # Modale CV
+├── i18n/                     # Configuration next-intl
+└── middleware.ts             # Middleware i18n
+messages/
+├── fr.json                   # Traductions FR
+└── en.json                   # Traductions EN
+```
