@@ -7,7 +7,8 @@ import { motion } from 'framer-motion';
 
 const menuItems = [
   { id: 'about', href: '/about', number: '01' },
-  { id: 'projects', href: '/projects', number: '02' },
+  { id: 'competences', href: '/competences', number: '02' },
+  { id: 'projects', href: '/projects', number: '03' },
 ];
 
 export default function Menu() {

@@ -6,7 +6,8 @@
     "back": "Retour",
     "about": "À propos",
     "projects": "Projets",
-    "home": "Accueil"
+    "home": "Accueil",
+    "competences": "Compétences"
   },
   "Home": {
     "location": "Bondy, France",
@@ -25,7 +26,12 @@
       "subtitle": "Portfolio",
       "description": "Une sélection de mes réalisations académiques, professionnelles et personnelles."
     },
-    "explorer": "Explorer"
+    "explorer": "Explorer",
+    "competences": {
+      "title": "COMPÉTENCES",
+      "subtitle": "Référentiel BUT",
+      "description": "Les six compétences du diplôme, chacune adossée à des réalisations concrètes."
+    }
   },
   "About": {
     "heading": "Plus qu'un simple",
@@ -125,7 +131,7 @@
   "Projects": {
     "heading": "Mes",
     "headingAccent": "Réalisations.",
-    "subtitle": "Une sélection de mes travaux académiques et professionnels.",
+    "subtitle": "Cinq réalisations, présentées avec leur contexte, mes choix et ce que j'en retire.",
     "filters": {
       "all": "Tout",
       "web": "Web",
@@ -135,28 +141,117 @@
     "viewProject": "Voir le projet",
     "viewCode": "Code",
     "items": {
-      "p1": {
-        "title": "Système Multi-Agents IA — Surveillance Aéroportuaire",
-        "description": "Architecture IA avec Agno : orchestration d'agents autonomes et workflows RAG pour l'analyse contextuelle. Pipeline de données hybride vers une architecture multi-modèle.",
-        "tags": "Python, Agno, PostGIS, Neo4j, React, pgvector"
+      "aerowise": {
+        "title": "AeroWise — Système multi-agents IA",
+        "subtitle": "Surveillance et interrogation de données aéroportuaires",
+        "description": "Orchestration d'agents autonomes et recherche augmentée par récupération, sur un socle de données hybride.",
+        "tags": "Python, Agno, PostGIS, Neo4j, pgvector, React, RAG",
+        "context": "Projet de troisième année mené en équipe à l'IUT. L'objectif est d'exploiter des données aéroportuaires hétérogènes — positions, entités et documents — pour permettre une interrogation en langage naturel et une analyse contextuelle, là où une simple requête SQL ne suffit pas.",
+        "role": "[À COMPLÉTER] Décrire votre rôle exact dans l'équipe, la répartition des tâches, et ce que vous avez personnellement conçu ou codé. C'est la première chose que le jury cherchera.",
+        "choices": [
+          "Orchestrer plusieurs agents spécialisés plutôt qu'appeler un modèle unique, afin d'isoler les responsabilités : récupération, analyse, restitution.",
+          "Répartir le stockage selon la nature de la donnée : PostGIS pour le géospatial, Neo4j pour les relations entre entités, pgvector pour la recherche sémantique.",
+          "Adopter une architecture multi-modèle, le modèle sollicité dépendant du type de tâche à traiter."
+        ],
+        "difficulties": "[À COMPLÉTER] La difficulté qui vous a coûté le plus de temps, et comment vous l'avez levée. Une impasse assumée vaut mieux qu'un récit sans aspérité.",
+        "results": "[À COMPLÉTER] Ce que le système sait faire aujourd'hui, avec une mesure si vous en avez une : volume indexé, temps de réponse, pertinence des réponses.",
+        "traces": [
+          "[À COMPLÉTER] Schéma d'architecture",
+          "[À COMPLÉTER] Extrait de code de l'orchestrateur",
+          "[À COMPLÉTER] Capture de l'interface"
+        ]
       },
-      "p2": {
-        "title": "Application Web Météo",
-        "description": "Application de visualisation des mesures météo en France. API, architecture MVC, tableau de bord interactif avec Chart.js.",
-        "tags": "Java, PHP, MySQL, JavaScript, Chart.js, HTML/CSS"
+      "linedata": {
+        "title": "Maintenance d'un progiciel financier — Linedata",
+        "subtitle": "Alternance — analyste support, division Lending & Leasing",
+        "description": "Diagnostic et correction d'anomalies sur un progiciel de gestion de crédits et de crédit-bail utilisé par des banques et des sociétés de leasing.",
+        "tags": "Java, XML, PL/SQL, Oracle, Drools, GitLab, Unix",
+        "context": "Le progiciel gère des contrats de crédit-bail et de financement de bout en bout. Il est décliné en une version standard et autant de branches spécifiques qu'il compte de clients. Mon service prend en charge tout ce qui survient après la mise en production : les anomalies remontées par les clients, les évolutions de faible ampleur et les reprises de données.",
+        "role": "Analyste support. Je reçois des fiches d'incident, je reproduis l'anomalie sur l'environnement du client, je qualifie son périmètre — un seul client ou tout le parc —, j'en identifie la cause, je corrige, je teste et je documente l'intervention jusqu'à sa clôture.",
+        "choices": [
+          "Diagnostiquer par élimination successive d'hypothèses plutôt que par lecture linéaire du code : sur une base de plus de vingt ans, c'est la seule approche qui converge.",
+          "Utiliser l'historique de versions comme source d'information : qui a modifié un fichier, quand et pour quelle fiche, en l'absence de documentation technique complète.",
+          "Distinguer systématiquement la correction de la cause et la réparation des données déjà dégradées, qui relève d'un script de reprise testé au préalable sur une base de test."
+        ],
+        "difficulties": "Le volume de code, écrit sur deux décennies par des dizaines de personnes, avec des conventions qui ont évolué au fil du temps. La dimension métier ensuite : sans comprendre ce qu'est une valeur résiduelle ou un échéancier, l'anomalie reste illisible. Enfin, les anomalies non reproductibles, qui obligent à raisonner sur des écarts d'environnement sans jamais observer le phénomène.",
+        "results": "Vingt fiches traitées sur la période, dont quatorze fermées. Une intervention notable : l'identification d'un défaut de framework sur un écran de recherche, où la règle métier était correcte mais n'était évaluée qu'une seule fois au chargement. Le livrable n'a pas été un correctif mais un diagnostic transmis à l'équipe de développement.",
+        "traces": [
+          "Rapport d'alternance détaillé — disponible sur demande",
+          "[À COMPLÉTER] Extrait de code anonymisé, si votre maître d'apprentissage le valide"
+        ]
       },
-      "p3": {
-        "title": "Base de données & Dashboard — Campus",
-        "description": "Base de données centralisée, migration automatisée, connexion API et tableau de bord temps réel avec automatisation de rapports.",
-        "tags": "Python, MySQL, Excel, API REST"
+      "campus": {
+        "title": "Base de données centralisée & tableau de bord",
+        "subtitle": "Stage — Campus des entrepreneurs",
+        "description": "Unification de données dispersées dans une base unique, migration automatisée et restitution en temps réel.",
+        "tags": "Python, MySQL, API REST, Excel",
+        "context": "L'organisation gérait ses données dans plusieurs fichiers séparés, sans source unique de vérité : chiffres divergents d'un document à l'autre et rapports reconstruits à la main à chaque échéance.",
+        "role": "Conception du modèle de données centralisé, écriture de la migration depuis les sources existantes, connexion aux plateformes externes par API, et construction du tableau de bord.",
+        "choices": [
+          "Automatiser la migration par script plutôt que reprendre les données à la main, afin de pouvoir la rejouer autant de fois que nécessaire pendant la mise au point.",
+          "Alimenter la base par appels API vers les plateformes externes, pour éviter une ressaisie et garantir la fraîcheur des données.",
+          "Automatiser la production des rapports récurrents plutôt que de livrer un tableau de bord seul."
+        ],
+        "difficulties": "[À COMPLÉTER] La qualité des données d'origine, les doublons, les formats hétérogènes — ce qui vous a réellement bloqué et comment vous l'avez traité.",
+        "results": "[À COMPLÉTER] Ce que l'organisation a gagné : temps économisé sur la production des rapports, nombre d'enregistrements migrés, fiabilisation constatée.",
+        "traces": [
+          "[À COMPLÉTER] Schéma du modèle de données",
+          "[À COMPLÉTER] Capture du tableau de bord, données anonymisées"
+        ]
       },
-      "p4": {
-        "title": "Progiciel Financier — Linedata",
-        "description": "Analyse et résolution d'incidents techniques sur progiciel financier. Développement d'évolutions et intervention sur l'infrastructure Unix/Oracle.",
-        "tags": "Java, SQL, PL/SQL, XML, Angular, Unix, Oracle"
+      "portfolio": {
+        "title": "Ce portfolio",
+        "subtitle": "Application web bilingue, conçue et déployée de bout en bout",
+        "description": "Site personnel en Next.js : internationalisation, thème clair et sombre, formulaire de contact et déploiement continu.",
+        "tags": "Next.js, React, TypeScript, Tailwind, next-intl, Framer Motion, Vercel",
+        "context": "Ce site remplit deux fonctions : présenter mon travail à des recruteurs, et servir de support de preuve pour la validation de mes compétences de BUT. Ces deux publics n'attendent pas la même chose, ce qui a orienté la structure du site.",
+        "role": "Conception, développement et déploiement, seul, de la maquette à la mise en ligne.",
+        "choices": [
+          "Next.js avec l'App Router et next-intl : le contenu existe intégralement en français et en anglais, chaque page étant servie dans la langue de l'URL.",
+          "Thème clair et sombre pilotés par des variables CSS plutôt que par deux jeux de classes, pour ne définir chaque couleur qu'à un seul endroit.",
+          "Séparation entre structure et contenu : les textes vivent dans des fichiers de traduction, le code ne contient aucune chaîne en dur.",
+          "Déploiement continu sur Vercel : chaque commit sur la branche principale déclenche une construction et une mise en ligne."
+        ],
+        "difficulties": "[À COMPLÉTER] Ce qui a été réellement difficile : l'hydratation du thème sans clignotement au chargement, le routage internationalisé, ou autre chose — racontez-le.",
+        "results": "Site en ligne, bilingue, responsive, avec un score de performance à mesurer. Le code est public et sert lui-même de preuve pour la compétence Réaliser.",
+        "traces": [
+          "Dépôt GitHub public",
+          "Site en production"
+        ]
+      },
+      "meteo": {
+        "title": "Application web météo",
+        "subtitle": "SAÉ — visualisation de relevés météorologiques",
+        "description": "Consultation et visualisation graphique des mesures météo relevées en France.",
+        "tags": "Java, PHP, MySQL, JavaScript, Chart.js, HTML/CSS",
+        "context": "Situation d'apprentissage et d'évaluation menée à l'IUT : rendre exploitable un jeu de relevés météorologiques par une interface de consultation et des représentations graphiques.",
+        "role": "[À COMPLÉTER] Votre rôle : projet individuel ou en groupe, et ce que vous avez pris en charge.",
+        "choices": [
+          "Architecture MVC, pour séparer l'accès aux données, la logique de traitement et l'affichage.",
+          "Chart.js côté client pour la restitution graphique, afin de garder le serveur sur son rôle de fourniture de données."
+        ],
+        "difficulties": "[À COMPLÉTER] Ce qui a posé problème : volume de données, performance des requêtes, formats de dates…",
+        "results": "[À COMPLÉTER] Ce que l'application permet de faire, et ce que vous en retirez avec le recul.",
+        "traces": [
+          "[À COMPLÉTER] Capture de l'écran principal",
+          "[À COMPLÉTER] Extrait du schéma de base de données"
+        ]
       }
     },
-    "private": "Privé"
+    "private": "Privé",
+    "backToProjects": "Tous les projets",
+    "contextLabel": "Contexte",
+    "roleLabel": "Mon rôle",
+    "choicesLabel": "Choix techniques",
+    "difficultiesLabel": "Difficultés rencontrées",
+    "resultsLabel": "Résultat et recul",
+    "tracesLabel": "Traces",
+    "competencesLabel": "Compétences mobilisées",
+    "stackLabel": "Technologies",
+    "viewRepo": "Voir le dépôt",
+    "viewDemo": "Voir en ligne",
+    "confidential": "Code non public — contexte entreprise",
+    "notFound": "Projet introuvable."
   },
   "Contact": {
     "title": "Me Contacter",
@@ -179,5 +274,132 @@
   "Cv": {
     "viewCv": "Voir mon CV",
     "myCv": "Mon CV"
+  },
+  "Competences": {
+    "kicker": "Référentiel BUT Informatique",
+    "heading": "Mes",
+    "headingAccent": "Compétences.",
+    "subtitle": "Les six compétences du BUT Informatique, parcours Administration, gestion et exploitation des données, chacune adossée à des réalisations concrètes.",
+    "levelLabel": "Niveau 3 — BUT 3",
+    "coversLabel": "Ce que la compétence recouvre",
+    "evidenceLabel": "Preuves",
+    "selfLabel": "Où j'en suis",
+    "seeProject": "Voir le projet",
+    "status": {
+      "acquired": "Acquis",
+      "consolidating": "En consolidation",
+      "developing": "À renforcer"
+    },
+    "disclaimer": "Les énoncés de niveau 3 reprennent le référentiel national du parcours AGED.",
+    "items": {
+      "realiser": {
+        "name": "Réaliser un développement d'application",
+        "statement": "Adapter des applications sur un ensemble de supports",
+        "covers": "Concevoir, coder, tester et intégrer une solution logicielle, puis la faire vivre sur des supports et des contextes d'exécution différents.",
+        "self": "C'est la compétence sur laquelle je suis le plus à l'aise, en particulier dans l'adaptation d'un existant : lire un code que je n'ai pas écrit, comprendre ses conventions et intervenir sans casser le reste. Je suis en revanche moins entraîné à concevoir une architecture applicative complète depuis une page blanche : mes projets partent souvent d'un socle déjà posé.",
+        "evidence": [
+          {
+            "slug": "portfolio",
+            "text": "Ce site, développé de bout en bout : Next.js, internationalisation français/anglais, thème clair et sombre, rendu adapté du mobile au grand écran."
+          },
+          {
+            "slug": "linedata",
+            "text": "Corrections en Java et en XML sur un progiciel décliné en autant de variantes qu'il compte de clients, avec les contraintes de conventions et de non-régression que cela impose."
+          },
+          {
+            "slug": "meteo",
+            "text": "Application web complète en architecture MVC, avec restitution graphique des relevés."
+          }
+        ]
+      },
+      "optimiser": {
+        "name": "Optimiser des applications informatiques",
+        "statement": "Sélectionner les algorithmes adéquats pour répondre à un problème donné",
+        "covers": "Choisir et ajuster les traitements en fonction de critères mesurables : temps d'exécution, précision, consommation de ressources.",
+        "self": "J'ai plus souvent optimisé un traitement existant que comparé formellement plusieurs algorithmes avant de trancher. Le raisonnement en complexité reste ma zone la plus théorique et je compte la retravailler en master. En revanche, la recherche de cause racine par élimination d'hypothèses est devenue une méthode que j'applique systématiquement.",
+        "evidence": [
+          {
+            "slug": "aerowise",
+            "text": "Choix d'un stockage hybride selon la nature de la donnée, et sélection du modèle en fonction de la tâche plutôt qu'un traitement unique pour tous les cas."
+          },
+          {
+            "slug": "linedata",
+            "text": "Diagnostic d'anomalies par élimination successive d'hypothèses, sur une base de code de plus de vingt ans ; identification de causes racines invisibles à la lecture du code."
+          }
+        ]
+      },
+      "administrer": {
+        "name": "Administrer des systèmes informatiques communicants complexes",
+        "statement": "Déployer des services dans une architecture réseau",
+        "covers": "Installer, configurer, déployer et maintenir en conditions opérationnelles des services, des infrastructures et des environnements d'exécution.",
+        "self": "Je déploie et j'exploite au quotidien, mais je n'ai pas encore conçu d'architecture réseau complète. Ma pratique est celle d'un utilisateur avancé des environnements : je sais les monter, les diagnostiquer et lire leurs journaux, moins les dimensionner.",
+        "evidence": [
+          {
+            "slug": "linedata",
+            "text": "Déploiement d'environnements applicatifs en local sous Tomcat ou JBoss selon le client, connexion à des machines distantes Unix, exploitation des journaux et exécution en mode debug."
+          },
+          {
+            "slug": "portfolio",
+            "text": "Chaîne de déploiement continu : chaque commit sur la branche principale déclenche une construction et une mise en ligne sur Vercel."
+          }
+        ]
+      },
+      "gerer": {
+        "name": "Gérer des données de l'information",
+        "statement": "Administrer une base de données, concevoir et réaliser des systèmes d'information décisionnels",
+        "covers": "Concevoir un modèle de données, l'administrer, garantir sa cohérence et en tirer de l'information exploitable pour le pilotage.",
+        "self": "C'est le cœur de mon parcours et la compétence sur laquelle j'ai le plus de matière. Ce que l'alternance a ajouté, c'est la dimension production : intervenir sur des données réelles, accumulées depuis vingt ans, avec des opérations irréversibles. J'ai appris à distinguer corriger la cause d'un défaut et réparer les données qu'il a déjà dégradées.",
+        "evidence": [
+          {
+            "slug": "campus",
+            "text": "Conception d'une base centralisée à partir de sources dispersées, migration automatisée et restitution dans un tableau de bord temps réel."
+          },
+          {
+            "slug": "linedata",
+            "text": "Analyse de cohérence sur une table de production, puis rédaction et test d'un script PL/SQL de reprise pour réalimenter des soldes manquants."
+          },
+          {
+            "slug": "aerowise",
+            "text": "Modélisation de données hétérogènes : géospatiales, relationnelles et vectorielles, chacune dans le stockage adapté."
+          }
+        ]
+      },
+      "conduire": {
+        "name": "Conduire un projet",
+        "statement": "Participer à la conception et à la mise en œuvre d'un projet système d'information",
+        "covers": "Cadrer un besoin, organiser le travail, tenir des délais et rendre compte de l'avancement.",
+        "self": "J'ai participé à des projets, je n'en ai pas encore piloté. Ce que l'alternance m'a apporté est différent d'une conduite de projet classique : gérer un portefeuille de sujets priorisés par la gravité de l'incident, sans maîtriser ni l'arrivée ni l'échéance. J'ai aussi appris à documenter mon avancement pour pouvoir reprendre le fil après une semaine de cours.",
+        "evidence": [
+          {
+            "slug": "aerowise",
+            "text": "Projet universitaire mené en équipe, du cadrage du besoin à la démonstration finale."
+          },
+          {
+            "slug": "campus",
+            "text": "Mission de stage conduite du recueil du besoin jusqu'à la livraison, avec un interlocuteur non technique."
+          },
+          {
+            "slug": "linedata",
+            "text": "Portefeuille de vingt fiches priorisées, certaines étalées sur plusieurs mois, avec suivi documenté."
+          }
+        ]
+      },
+      "collaborer": {
+        "name": "Travailler dans une équipe informatique",
+        "statement": "Manager une équipe informatique",
+        "covers": "S'intégrer dans une organisation, communiquer avec des interlocuteurs de métiers différents, et à terme encadrer.",
+        "self": "C'est ma compétence la plus fragile, et je préfère le dire clairement : je n'ai pas encore encadré d'équipe. Ce que j'ai construit cette année, c'est la collaboration : savoir à qui adresser un problème, formuler une demande d'aide exploitable, et adapter mon niveau de discours selon que je parle à un consultant fonctionnel ou à un développeur. C'est un prérequis de l'encadrement, pas l'encadrement lui-même.",
+        "evidence": [
+          {
+            "slug": "linedata",
+            "text": "Travail quotidien avec le support de niveau 1, les experts produit, l'équipe de développement et l'équipe système ; toute modification validée par un pair via merge request."
+          },
+          {
+            "slug": "aerowise",
+            "text": "Répartition du travail et intégration des contributions au sein d'une équipe projet."
+          }
+        ]
+      }
+    }
   }
 }

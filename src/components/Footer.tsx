@@ -26,6 +26,7 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             {[
               { href: '/about', label: t('about') },
+              { href: '/competences', label: t('competences') },
               { href: '/projects', label: t('projects') },
               { href: '/contact', label: t('contactMe') },
             ].map((link) => (

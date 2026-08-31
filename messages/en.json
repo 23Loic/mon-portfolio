@@ -6,7 +6,8 @@
     "back": "Back",
     "about": "About",
     "projects": "Projects",
-    "home": "Home"
+    "home": "Home",
+    "competences": "Skills"
   },
   "Home": {
     "location": "Bondy, France",
@@ -25,7 +26,12 @@
       "subtitle": "Portfolio",
       "description": "A selection of my academic, professional, and personal projects."
     },
-    "explorer": "Explore"
+    "explorer": "Explore",
+    "competences": {
+      "title": "SKILLS",
+      "subtitle": "Degree framework",
+      "description": "The six competencies of the degree, each backed by concrete work."
+    }
   },
   "About": {
     "heading": "More than just",
@@ -125,7 +131,7 @@
   "Projects": {
     "heading": "My",
     "headingAccent": "Work.",
-    "subtitle": "A selection of my academic and professional projects.",
+    "subtitle": "Five projects, each with its context, my decisions and what I take from it.",
     "filters": {
       "all": "All",
       "web": "Web",
@@ -135,28 +141,117 @@
     "viewProject": "View project",
     "viewCode": "Code",
     "items": {
-      "p1": {
-        "title": "Multi-Agent AI System — Airport Surveillance",
-        "description": "AI architecture with Agno: orchestration of autonomous agents and RAG workflows for contextual analysis. Hybrid data pipeline to a multi-model architecture.",
-        "tags": "Python, Agno, PostGIS, Neo4j, React, pgvector"
+      "aerowise": {
+        "title": "AeroWise — Multi-agent AI system",
+        "subtitle": "Monitoring and querying airport data",
+        "description": "Autonomous agent orchestration and retrieval-augmented search over a hybrid data layer.",
+        "tags": "Python, Agno, PostGIS, Neo4j, pgvector, React, RAG",
+        "context": "A final-year team project. The goal is to exploit heterogeneous airport data — positions, entities and documents — to allow natural-language querying and contextual analysis where a plain SQL query is not enough.",
+        "role": "[TO COMPLETE] Describe your exact role in the team and what you personally designed or wrote.",
+        "choices": [
+          "Orchestrating several specialised agents rather than calling a single model, to isolate responsibilities: retrieval, analysis, presentation.",
+          "Splitting storage by data type: PostGIS for geospatial data, Neo4j for relationships, pgvector for semantic search.",
+          "A multi-model architecture, with the model chosen according to the task."
+        ],
+        "difficulties": "[TO COMPLETE] The hardest problem you faced and how you solved it.",
+        "results": "[TO COMPLETE] What the system does today, with a measurement if you have one.",
+        "traces": [
+          "[TO COMPLETE] Architecture diagram",
+          "[TO COMPLETE] Orchestrator code excerpt",
+          "[TO COMPLETE] Interface screenshot"
+        ]
       },
-      "p2": {
-        "title": "Weather Web Application",
-        "description": "Weather data visualization across France. API retrieval, MVC backend, interactive dashboard with Chart.js.",
-        "tags": "Java, PHP, MySQL, JavaScript, Chart.js, HTML/CSS"
+      "linedata": {
+        "title": "Financial software maintenance — Linedata",
+        "subtitle": "Apprenticeship — support analyst, Lending & Leasing division",
+        "description": "Diagnosing and fixing defects in a lending and leasing platform used by banks and leasing companies.",
+        "tags": "Java, XML, PL/SQL, Oracle, Drools, GitLab, Unix",
+        "context": "The product manages leasing and financing contracts end to end. It ships as a standard core plus one branch per client. My department handles everything that happens after go-live: client-reported defects, small enhancements and data remediation.",
+        "role": "Support analyst. I receive incident tickets, reproduce the fault on the client environment, decide whether it affects one client or all of them, find the cause, fix, test and document the work through to closure.",
+        "choices": [
+          "Diagnosing by successive elimination rather than reading code linearly — on a twenty-year-old codebase, it is the only approach that converges.",
+          "Using version history as a source of knowledge: who changed a file, when and for which ticket, in the absence of complete technical documentation.",
+          "Always separating the fix for the cause from the repair of already-damaged data, which requires a remediation script tested beforehand."
+        ],
+        "difficulties": "The sheer size of the code, written over two decades by dozens of people. The business dimension: without understanding residual value or payment schedules, a defect is unreadable. And non-reproducible faults, which force you to reason about environment differences without ever observing the problem.",
+        "results": "Twenty tickets handled over the period, fourteen closed. One notable case: identifying a framework defect on a search screen where the business rule was correct but evaluated only once, at load time. The deliverable was not a fix but a diagnosis handed to the development team.",
+        "traces": [
+          "Full apprenticeship report — available on request",
+          "[TO COMPLETE] Anonymised code excerpt, subject to approval"
+        ]
       },
-      "p3": {
-        "title": "Database & Dashboard — Campus",
-        "description": "Centralized database with automated migration, API integration and real-time dashboard with automated reporting.",
-        "tags": "Python, MySQL, Excel, REST API"
+      "campus": {
+        "title": "Centralised database & dashboard",
+        "subtitle": "Internship — Campus des entrepreneurs",
+        "description": "Unifying scattered data into a single database, automated migration and real-time reporting.",
+        "tags": "Python, MySQL, REST API, Excel",
+        "context": "The organisation kept its data in several separate files with no single source of truth: figures diverged between documents and reports were rebuilt by hand every time.",
+        "role": "Designing the centralised data model, writing the migration from existing sources, connecting external platforms through APIs, and building the dashboard.",
+        "choices": [
+          "Automating the migration with a script rather than moving data by hand, so it could be replayed as often as needed.",
+          "Feeding the database through API calls to external platforms, avoiding re-entry and keeping data fresh.",
+          "Automating recurring reports rather than delivering a dashboard alone."
+        ],
+        "difficulties": "[TO COMPLETE] Source data quality, duplicates, inconsistent formats — what actually blocked you.",
+        "results": "[TO COMPLETE] What the organisation gained: time saved, records migrated, reliability improved.",
+        "traces": [
+          "[TO COMPLETE] Data model diagram",
+          "[TO COMPLETE] Dashboard screenshot, anonymised"
+        ]
       },
-      "p4": {
-        "title": "Financial Software — Linedata",
-        "description": "Analysis and resolution of technical incidents on financial software. Feature development and Unix/Oracle infrastructure work.",
-        "tags": "Java, SQL, PL/SQL, XML, Angular, Unix, Oracle"
+      "portfolio": {
+        "title": "This portfolio",
+        "subtitle": "A bilingual web application, designed and deployed end to end",
+        "description": "Personal site in Next.js: localisation, light and dark themes, contact form and continuous deployment.",
+        "tags": "Next.js, React, TypeScript, Tailwind, next-intl, Framer Motion, Vercel",
+        "context": "This site serves two purposes: showing my work to recruiters, and acting as evidence for the validation of my degree competencies. Those two audiences want different things, which shaped the structure of the site.",
+        "role": "Design, development and deployment, alone, from mockup to production.",
+        "choices": [
+          "Next.js with the App Router and next-intl: all content exists in French and English, each page served in the language of its URL.",
+          "Light and dark themes driven by CSS variables rather than two sets of classes, so each colour is defined in one place only.",
+          "Structure separated from content: all text lives in translation files, no hard-coded strings in the code.",
+          "Continuous deployment on Vercel: every commit on the main branch triggers a build and a release."
+        ],
+        "difficulties": "[TO COMPLETE] What was genuinely hard: theme hydration without a flash on load, localised routing, or something else.",
+        "results": "Live, bilingual, responsive site. The code is public and is itself evidence for the Build competency.",
+        "traces": [
+          "Public GitHub repository",
+          "Live site"
+        ]
+      },
+      "meteo": {
+        "title": "Weather web application",
+        "subtitle": "Coursework — visualising weather measurements",
+        "description": "Browsing and charting weather measurements recorded across France.",
+        "tags": "Java, PHP, MySQL, JavaScript, Chart.js, HTML/CSS",
+        "context": "A university assignment: making a set of weather records usable through a browsing interface and graphical representations.",
+        "role": "[TO COMPLETE] Your role: solo or team project, and what you took on.",
+        "choices": [
+          "MVC architecture, separating data access, processing logic and display.",
+          "Chart.js on the client for rendering, keeping the server focused on serving data."
+        ],
+        "difficulties": "[TO COMPLETE] What caused trouble: data volume, query performance, date formats…",
+        "results": "[TO COMPLETE] What the application does, and what you take from it in hindsight.",
+        "traces": [
+          "[TO COMPLETE] Main screen capture",
+          "[TO COMPLETE] Database schema excerpt"
+        ]
       }
     },
-    "private": "Private"
+    "private": "Private",
+    "backToProjects": "All projects",
+    "contextLabel": "Context",
+    "roleLabel": "My role",
+    "choicesLabel": "Technical decisions",
+    "difficultiesLabel": "Difficulties",
+    "resultsLabel": "Outcome and hindsight",
+    "tracesLabel": "Evidence",
+    "competencesLabel": "Competencies demonstrated",
+    "stackLabel": "Stack",
+    "viewRepo": "View repository",
+    "viewDemo": "View live",
+    "confidential": "Code not public — company context",
+    "notFound": "Project not found."
   },
   "Contact": {
     "title": "Get in Touch",
@@ -179,5 +274,132 @@
   "Cv": {
     "viewCv": "View my resume",
     "myCv": "My Resume"
+  },
+  "Competences": {
+    "kicker": "French BUT Computer Science framework",
+    "heading": "My",
+    "headingAccent": "Skills.",
+    "subtitle": "The six competencies of the BUT in Computer Science, data management track, each backed by concrete work.",
+    "levelLabel": "Level 3 — final year",
+    "coversLabel": "What the competency covers",
+    "evidenceLabel": "Evidence",
+    "selfLabel": "Where I stand",
+    "seeProject": "View project",
+    "status": {
+      "acquired": "Achieved",
+      "consolidating": "Consolidating",
+      "developing": "Needs work"
+    },
+    "disclaimer": "Level 3 statements are taken from the national framework of the data management track.",
+    "items": {
+      "realiser": {
+        "name": "Build an application",
+        "statement": "Adapt applications across a range of platforms",
+        "covers": "Design, code, test and integrate a software solution, then keep it running across different platforms and execution contexts.",
+        "self": "This is where I am most comfortable, especially when adapting existing software: reading code I did not write, understanding its conventions and changing it without breaking the rest. I am less practised at designing a full application architecture from scratch.",
+        "evidence": [
+          {
+            "slug": "portfolio",
+            "text": "This site, built end to end: Next.js, French and English localisation, light and dark themes, responsive from mobile to desktop."
+          },
+          {
+            "slug": "linedata",
+            "text": "Java and XML fixes on a product shipped in as many variants as it has clients, with the conventions and regression constraints that implies."
+          },
+          {
+            "slug": "meteo",
+            "text": "A complete web application in MVC architecture, with graphical rendering of measurements."
+          }
+        ]
+      },
+      "optimiser": {
+        "name": "Optimise applications",
+        "statement": "Select the right algorithms for a given problem",
+        "covers": "Choose and tune processing against measurable criteria: execution time, accuracy, resource use.",
+        "self": "I have more often optimised existing processing than formally compared algorithms before choosing. Complexity analysis remains my most theoretical area and I plan to work on it during my master's. Root-cause analysis by elimination, however, has become a method I apply systematically.",
+        "evidence": [
+          {
+            "slug": "aerowise",
+            "text": "Hybrid storage chosen per data type, and model selection driven by the task rather than one pipeline for every case."
+          },
+          {
+            "slug": "linedata",
+            "text": "Fault diagnosis by successive elimination of hypotheses on a codebase over twenty years old."
+          }
+        ]
+      },
+      "administrer": {
+        "name": "Administer complex networked systems",
+        "statement": "Deploy services within a network architecture",
+        "covers": "Install, configure, deploy and keep services, infrastructure and runtime environments operational.",
+        "self": "I deploy and operate daily, but I have not yet designed a full network architecture. My practice is that of an advanced user of environments: I can set them up, diagnose them and read their logs, less so size them.",
+        "evidence": [
+          {
+            "slug": "linedata",
+            "text": "Local application environments on Tomcat or JBoss depending on the client, remote Unix machines, log analysis and debug execution."
+          },
+          {
+            "slug": "portfolio",
+            "text": "Continuous deployment: every commit on the main branch triggers a build and a release on Vercel."
+          }
+        ]
+      },
+      "gerer": {
+        "name": "Manage information and data",
+        "statement": "Administer a database, design and build decision-support systems",
+        "covers": "Design a data model, administer it, guarantee its consistency and turn it into information usable for decision-making.",
+        "self": "This is the core of my track and where I have the most material. The apprenticeship added the production dimension: working on real data accumulated over twenty years, with irreversible operations. I learned to separate fixing a defect's cause from repairing the data it has already damaged.",
+        "evidence": [
+          {
+            "slug": "campus",
+            "text": "A centralised database built from scattered sources, automated migration and a real-time dashboard."
+          },
+          {
+            "slug": "linedata",
+            "text": "Consistency analysis on a production table, then a PL/SQL remediation script written and tested to restore missing balances."
+          },
+          {
+            "slug": "aerowise",
+            "text": "Modelling heterogeneous data — geospatial, relational and vector — each in the appropriate store."
+          }
+        ]
+      },
+      "conduire": {
+        "name": "Run a project",
+        "statement": "Take part in designing and delivering an information-system project",
+        "covers": "Frame a need, organise the work, meet deadlines and report on progress.",
+        "self": "I have taken part in projects; I have not yet led one. The apprenticeship gave me something different: managing a portfolio of items prioritised by incident severity, controlling neither their arrival nor their deadline.",
+        "evidence": [
+          {
+            "slug": "aerowise",
+            "text": "A university team project, from framing the need to the final demonstration."
+          },
+          {
+            "slug": "campus",
+            "text": "An internship assignment run from requirements gathering to delivery, with a non-technical stakeholder."
+          },
+          {
+            "slug": "linedata",
+            "text": "A portfolio of twenty tickets prioritised by severity, some spanning several months."
+          }
+        ]
+      },
+      "collaborer": {
+        "name": "Work within a software team",
+        "statement": "Manage a software team",
+        "covers": "Fit into an organisation, communicate with people from different disciplines, and eventually lead.",
+        "self": "This is my weakest competency and I would rather say so plainly: I have not yet led a team. What I built this year is collaboration — knowing who to take a problem to, phrasing a useful request for help, and adjusting how I explain things depending on my audience.",
+        "evidence": [
+          {
+            "slug": "linedata",
+            "text": "Daily work with first-line support, product experts, the development team and the systems team; every change reviewed by a peer through a merge request."
+          },
+          {
+            "slug": "aerowise",
+            "text": "Sharing out the work and integrating contributions within a project team."
+          }
+        ]
+      }
+    }
   }
 }
