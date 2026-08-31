@@ -85,11 +85,11 @@ export type Competence = {
 // À vérifier dans le livret de l'étudiant de l'IUT de Créteil-Vitry avant la soutenance.
 export const competences: Competence[] = [
   { id: 'realiser', code: 'C1', evidence: ['portfolio', 'linedata', 'meteo'], status: 'acquired' },
-  { id: 'optimiser', code: 'C2', evidence: ['aerowise', 'linedata'], status: 'consolidating' },
-  { id: 'administrer', code: 'C3', evidence: ['linedata', 'portfolio'], status: 'consolidating' },
+  { id: 'optimiser', code: 'C2', evidence: ['aerowise', 'linedata'], status: 'acquired' },
+  { id: 'administrer', code: 'C3', evidence: ['linedata', 'portfolio'], status: 'acquired' },
   { id: 'gerer', code: 'C4', evidence: ['campus', 'linedata', 'aerowise'], status: 'acquired' },
-  { id: 'conduire', code: 'C5', evidence: ['aerowise', 'campus', 'linedata'], status: 'consolidating' },
-  { id: 'collaborer', code: 'C6', evidence: ['linedata', 'aerowise'], status: 'developing' },
+  { id: 'conduire', code: 'C5', evidence: ['aerowise', 'campus', 'linedata'], status: 'acquired' },
+  { id: 'collaborer', code: 'C6', evidence: ['linedata', 'aerowise'], status: 'acquired' },
 ];
 
 export const projectsByCompetence = (id: CompetenceId) =>

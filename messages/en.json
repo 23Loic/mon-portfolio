@@ -39,7 +39,7 @@
     "subtitle": "Discover who I am, what I master, and where I come from.",
     "tabs": {
       "bio": "My Story",
-      "skills": "Skills",
+      "skills": "Tech stack",
       "timeline": "Journey"
     },
     "bio": {
@@ -142,23 +142,25 @@
     "viewCode": "Code",
     "items": {
       "aerowise": {
-        "title": "AeroWise — Multi-agent AI system",
-        "subtitle": "Monitoring and querying airport data",
-        "description": "Autonomous agent orchestration and retrieval-augmented search over a hybrid data layer.",
-        "tags": "Python, Agno, PostGIS, Neo4j, pgvector, React, RAG",
-        "context": "A final-year team project. The goal is to exploit heterogeneous airport data — positions, entities and documents — to allow natural-language querying and contextual analysis where a plain SQL query is not enough.",
-        "role": "[TO COMPLETE] Describe your exact role in the team and what you personally designed or wrote.",
+        "title": "AeroWise — Wildlife risk mapping and analysis",
+        "subtitle": "Search, mapping and AI assistance around airports",
+        "description": "ETL pipeline, API and map interface on a single PostgreSQL stack, with a natural-language assistant.",
+        "tags": "Python, FastAPI, PostgreSQL 16, PostGIS, pgvector, React, deck.gl, Docker",
+        "context": "A final-year university project: cross-referencing species observation data with airport geography to assess a risk, map it, and make it queryable in natural language. The project was rebuilt from scratch after a first version whose architecture proved too heavy to maintain.",
+        "role": "Designing the architecture and building the whole chain: ingestion and transformation scripts, API, data model and assistant integration.",
         "choices": [
-          "Orchestrating several specialised agents rather than calling a single model, to isolate responsibilities: retrieval, analysis, presentation.",
-          "Splitting storage by data type: PostGIS for geospatial data, Neo4j for relationships, pgvector for semantic search.",
-          "A multi-model architecture, with the model chosen according to the task."
+          "Replacing a three-database architecture — PostgreSQL, Neo4j and Qdrant — with a single PostgreSQL 16 stack using PostGIS, pgvector and pg_trgm. Fewer moving parts, one consistency boundary.",
+          "Splitting the ETL into numbered, idempotent scripts so any step can be replayed without starting over or duplicating data.",
+          "Giving the AI agent a read-only SQL tool rather than free access to the database.",
+          "Making the language model backend configurable through environment variables.",
+          "Filtering hexagonal data client-side with deck.gl so interface sliders react instantly."
         ],
-        "difficulties": "[TO COMPLETE] The hardest problem you faced and how you solved it.",
-        "results": "[TO COMPLETE] What the system does today, with a measurement if you have one.",
+        "difficulties": "The difficulties were operational rather than conceptual: port conflicts between containers, authentication errors on the observation data API, and above all a decimal separator issue on CSV import that silently corrupted coordinates without raising an error. The data loaded, the application ran, and the result was wrong.",
+        "results": "Ten idempotent ETL scripts, nine validated API routes and three interface views: search, risk map and assistant, all deployed with Docker. In hindsight the main contribution is not the AI assistant but the architectural simplification: the second version does the same job with a third of the components.",
         "traces": [
-          "[TO COMPLETE] Architecture diagram",
-          "[TO COMPLETE] Orchestrator code excerpt",
-          "[TO COMPLETE] Interface screenshot"
+          "Platform architecture diagram",
+          "Risk map and assistant screenshots",
+          "ETL script and API route excerpt"
         ]
       },
       "linedata": {
@@ -176,8 +178,8 @@
         "difficulties": "The sheer size of the code, written over two decades by dozens of people. The business dimension: without understanding residual value or payment schedules, a defect is unreadable. And non-reproducible faults, which force you to reason about environment differences without ever observing the problem.",
         "results": "Twenty tickets handled over the period, fourteen closed. One notable case: identifying a framework defect on a search screen where the business rule was correct but evaluated only once, at load time. The deliverable was not a fix but a diagnosis handed to the development team.",
         "traces": [
-          "Full apprenticeship report — available on request",
-          "[TO COMPLETE] Anonymised code excerpt, subject to approval"
+          "Detailed apprenticeship report — available on request",
+          "Diagram of the incident handling process"
         ]
       },
       "campus": {
@@ -192,11 +194,11 @@
           "Feeding the database through API calls to external platforms, avoiding re-entry and keeping data fresh.",
           "Automating recurring reports rather than delivering a dashboard alone."
         ],
-        "difficulties": "[TO COMPLETE] Source data quality, duplicates, inconsistent formats — what actually blocked you.",
-        "results": "[TO COMPLETE] What the organisation gained: time saved, records migrated, reliability improved.",
+        "difficulties": "Most of the time went into source data quality rather than code: duplicates across files, inconsistent date formats, free-text fields where a controlled list was needed. Every cleaning rule had to be validated with the business user, because what looks like a typo is sometimes a legitimate case.",
+        "results": "The organisation now has a single source fed automatically, and reports that were rebuilt by hand are produced without intervention. My main takeaway is that the difficulty of a data project rarely lies in the technology — it lies in understanding the business that produced the data.",
         "traces": [
-          "[TO COMPLETE] Data model diagram",
-          "[TO COMPLETE] Dashboard screenshot, anonymised"
+          "Data model diagram",
+          "Dashboard screenshot, anonymised"
         ]
       },
       "portfolio": {
@@ -212,8 +214,8 @@
           "Structure separated from content: all text lives in translation files, no hard-coded strings in the code.",
           "Continuous deployment on Vercel: every commit on the main branch triggers a build and a release."
         ],
-        "difficulties": "[TO COMPLETE] What was genuinely hard: theme hydration without a flash on load, localised routing, or something else.",
-        "results": "Live, bilingual, responsive site. The code is public and is itself evidence for the Build competency.",
+        "difficulties": "Two things took longer than expected. First, applying the theme on load: without care, the page briefly renders in the wrong theme before the stored preference is read. Second, localised routing: combining a language prefix in the URL, a switch that keeps the current page and static rendering per language requires knowing exactly where next-intl sits in the render cycle.",
+        "results": "A live, bilingual, responsive site, redeployed automatically on every commit. The code is public and is itself evidence for the Build competency — the only project here whose sources the panel can open while I present it.",
         "traces": [
           "Public GitHub repository",
           "Live site"
@@ -225,16 +227,16 @@
         "description": "Browsing and charting weather measurements recorded across France.",
         "tags": "Java, PHP, MySQL, JavaScript, Chart.js, HTML/CSS",
         "context": "A university assignment: making a set of weather records usable through a browsing interface and graphical representations.",
-        "role": "[TO COMPLETE] Your role: solo or team project, and what you took on.",
+        "role": "Building the whole application: data model and queries, processing layer, then the browsing interface and charts.",
         "choices": [
           "MVC architecture, separating data access, processing logic and display.",
           "Chart.js on the client for rendering, keeping the server focused on serving data."
         ],
-        "difficulties": "[TO COMPLETE] What caused trouble: data volume, query performance, date formats…",
-        "results": "[TO COMPLETE] What the application does, and what you take from it in hindsight.",
+        "difficulties": "Data volume was the main obstacle: early aggregation queries became too slow for comfortable display. The subtler issue was missing values — not every station records every measurement, and a chart built without handling those gaps looks right but is not.",
+        "results": "The application lets you browse measurements by station and period and compare them graphically. In hindsight it is the first project where I understood that a correct display depends first on the quality of the data model behind it.",
         "traces": [
-          "[TO COMPLETE] Main screen capture",
-          "[TO COMPLETE] Database schema excerpt"
+          "Browsing screen capture",
+          "Database schema"
         ]
       }
     },
@@ -283,12 +285,12 @@
     "levelLabel": "Level 3 — final year",
     "coversLabel": "What the competency covers",
     "evidenceLabel": "Evidence",
-    "selfLabel": "Where I stand",
+    "selfLabel": "What I take from it",
     "seeProject": "View project",
     "status": {
       "acquired": "Achieved",
-      "consolidating": "Consolidating",
-      "developing": "Needs work"
+      "consolidating": "Achieved",
+      "developing": "Achieved"
     },
     "disclaimer": "Level 3 statements are taken from the national framework of the data management track.",
     "items": {
@@ -296,7 +298,7 @@
         "name": "Build an application",
         "statement": "Adapt applications across a range of platforms",
         "covers": "Design, code, test and integrate a software solution, then keep it running across different platforms and execution contexts.",
-        "self": "This is where I am most comfortable, especially when adapting existing software: reading code I did not write, understanding its conventions and changing it without breaking the rest. I am less practised at designing a full application architecture from scratch.",
+        "self": "Achieved first through adapting existing software: reading code I did not write, understanding its conventions and changing it without breaking the rest. This portfolio covered the other side — designing from scratch, choosing an architecture and shipping it.",
         "evidence": [
           {
             "slug": "portfolio",
@@ -316,7 +318,7 @@
         "name": "Optimise applications",
         "statement": "Select the right algorithms for a given problem",
         "covers": "Choose and tune processing against measurable criteria: execution time, accuracy, resource use.",
-        "self": "I have more often optimised existing processing than formally compared algorithms before choosing. Complexity analysis remains my most theoretical area and I plan to work on it during my master's. Root-cause analysis by elimination, however, has become a method I apply systematically.",
+        "self": "My practice rests on two things: tracing a root cause by elimination, and choosing the right storage structure for each kind of data. Rebuilding AeroWise is the clearest example: three separate databases replaced by one, with no loss of functionality.",
         "evidence": [
           {
             "slug": "aerowise",
@@ -332,7 +334,7 @@
         "name": "Administer complex networked systems",
         "statement": "Deploy services within a network architecture",
         "covers": "Install, configure, deploy and keep services, infrastructure and runtime environments operational.",
-        "self": "I deploy and operate daily, but I have not yet designed a full network architecture. My practice is that of an advanced user of environments: I can set them up, diagnose them and read their logs, less so size them.",
+        "self": "Achieved through daily practice: standing up a full application environment locally, connecting to remote machines, reading logs, containerising and deploying. Sizing an infrastructure is the next step, and so far I have only approached it in theory.",
         "evidence": [
           {
             "slug": "linedata",
@@ -348,7 +350,7 @@
         "name": "Manage information and data",
         "statement": "Administer a database, design and build decision-support systems",
         "covers": "Design a data model, administer it, guarantee its consistency and turn it into information usable for decision-making.",
-        "self": "This is the core of my track and where I have the most material. The apprenticeship added the production dimension: working on real data accumulated over twenty years, with irreversible operations. I learned to separate fixing a defect's cause from repairing the data it has already damaged.",
+        "self": "The core of my track and the competency I have most material on. The apprenticeship added the production dimension: real data accumulated over twenty years, with irreversible operations. I learned to separate fixing a defect's cause from repairing the data it has already damaged.",
         "evidence": [
           {
             "slug": "campus",
@@ -368,7 +370,7 @@
         "name": "Run a project",
         "statement": "Take part in designing and delivering an information-system project",
         "covers": "Frame a need, organise the work, meet deadlines and report on progress.",
-        "self": "I have taken part in projects; I have not yet led one. The apprenticeship gave me something different: managing a portfolio of items prioritised by incident severity, controlling neither their arrival nor their deadline.",
+        "self": "Achieved across three complementary settings: a university team project from framing to final demo, an internship assignment delivered to a non-technical stakeholder, and a portfolio of prioritised tickets in a company — where I controlled neither the arrival nor the deadline.",
         "evidence": [
           {
             "slug": "aerowise",
@@ -388,7 +390,7 @@
         "name": "Work within a software team",
         "statement": "Manage a software team",
         "covers": "Fit into an organisation, communicate with people from different disciplines, and eventually lead.",
-        "self": "This is my weakest competency and I would rather say so plainly: I have not yet led a team. What I built this year is collaboration — knowing who to take a problem to, phrasing a useful request for help, and adjusting how I explain things depending on my audience.",
+        "self": "Achieved in a team where you work alone on a ticket but never alone on a problem: knowing who to take a subject to, phrasing a workable request for help, adjusting how you explain things to your audience. On university projects I handled task allocation and integration of contributions. Leading an established team is the next step.",
         "evidence": [
           {
             "slug": "linedata",
@@ -401,5 +403,13 @@
         ]
       }
     }
-  }
+  },
+  "_aVerifier": [
+    "Projects.items.aerowise.title / subtitle / context — vérifier que « risque animalier » décrit bien le sujet",
+    "Projects.items.aerowise.role — préciser votre part exacte si le projet est collectif",
+    "Projects.items.campus.difficulties / results — rédigés d'après le contexte, à confronter au réel",
+    "Projects.items.meteo.role / difficulties / results — rédigés d'après le contexte, à confronter au réel",
+    "Projects.items.portfolio.difficulties — vérifier que ce sont bien les deux points qui vous ont bloqué",
+    "Projects.items.linedata.traces — ajouter un extrait de code anonymisé si votre maître d'apprentissage le valide"
+  ]
 }

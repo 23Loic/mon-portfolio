@@ -39,7 +39,7 @@
     "subtitle": "Découvrez qui je suis, ce que je maîtrise et d'où je viens.",
     "tabs": {
       "bio": "Mon Histoire",
-      "skills": "Compétences",
+      "skills": "Technologies",
       "timeline": "Parcours"
     },
     "bio": {
@@ -142,23 +142,25 @@
     "viewCode": "Code",
     "items": {
       "aerowise": {
-        "title": "AeroWise — Système multi-agents IA",
-        "subtitle": "Surveillance et interrogation de données aéroportuaires",
-        "description": "Orchestration d'agents autonomes et recherche augmentée par récupération, sur un socle de données hybride.",
-        "tags": "Python, Agno, PostGIS, Neo4j, pgvector, React, RAG",
-        "context": "Projet de troisième année mené en équipe à l'IUT. L'objectif est d'exploiter des données aéroportuaires hétérogènes — positions, entités et documents — pour permettre une interrogation en langage naturel et une analyse contextuelle, là où une simple requête SQL ne suffit pas.",
-        "role": "[À COMPLÉTER] Décrire votre rôle exact dans l'équipe, la répartition des tâches, et ce que vous avez personnellement conçu ou codé. C'est la première chose que le jury cherchera.",
+        "title": "AeroWise — Cartographie et analyse du risque animalier",
+        "subtitle": "Plateforme de recherche, de cartographie et d'assistance IA autour des aéroports",
+        "description": "Pipeline ETL, API et interface cartographique sur un socle PostgreSQL unique, avec un assistant en langage naturel.",
+        "tags": "Python, FastAPI, PostgreSQL 16, PostGIS, pgvector, React, deck.gl, Docker",
+        "context": "Projet de troisième année mené à l'IUT. L'objectif est de croiser des données d'observation d'espèces et des données géographiques d'aéroports pour évaluer un risque, le cartographier, et permettre de l'interroger en langage naturel. Le projet a été entièrement repris après une première version dont l'architecture s'était révélée trop lourde à maintenir.",
+        "role": "Conception de l'architecture et développement de la chaîne complète : les scripts d'ingestion et de transformation, l'API, le modèle de données et l'intégration de l'assistant. La reprise de la première version a été l'occasion de repenser l'ensemble des choix techniques.",
         "choices": [
-          "Orchestrer plusieurs agents spécialisés plutôt qu'appeler un modèle unique, afin d'isoler les responsabilités : récupération, analyse, restitution.",
-          "Répartir le stockage selon la nature de la donnée : PostGIS pour le géospatial, Neo4j pour les relations entre entités, pgvector pour la recherche sémantique.",
-          "Adopter une architecture multi-modèle, le modèle sollicité dépendant du type de tâche à traiter."
+          "Remplacer une architecture à trois bases — PostgreSQL, Neo4j et Qdrant — par un socle PostgreSQL 16 unique, en s'appuyant sur PostGIS pour le géospatial, pgvector pour la recherche sémantique et pg_trgm pour la recherche approximative. Moins de composants à exploiter, une seule cohérence à garantir.",
+          "Découper l'ETL en scripts numérotés et idempotents, afin de pouvoir rejouer n'importe quelle étape sans repartir de zéro ni dupliquer de données.",
+          "Donner à l'agent IA un outil SQL en lecture seule plutôt qu'un accès libre à la base : l'assistant peut interroger, jamais modifier.",
+          "Rendre le moteur de langage configurable par variables d'environnement, pour changer de fournisseur sans toucher au code.",
+          "Filtrer les données hexagonales côté client avec deck.gl, afin que les curseurs de l'interface réagissent instantanément sans aller-retour serveur."
         ],
-        "difficulties": "[À COMPLÉTER] La difficulté qui vous a coûté le plus de temps, et comment vous l'avez levée. Une impasse assumée vaut mieux qu'un récit sans aspérité.",
-        "results": "[À COMPLÉTER] Ce que le système sait faire aujourd'hui, avec une mesure si vous en avez une : volume indexé, temps de réponse, pertinence des réponses.",
+        "difficulties": "Les difficultés ont été moins conceptuelles qu'opérationnelles : conflits de ports entre les services conteneurisés, erreurs d'authentification sur l'API de données d'observation, et surtout un problème de séparateur décimal à l'import des fichiers CSV, qui faussait silencieusement les coordonnées sans lever d'erreur. Ce dernier cas m'a marqué : la donnée était chargée, l'application fonctionnait, et le résultat était pourtant faux.",
+        "results": "La plateforme repose sur dix scripts d'ETL idempotents, neuf routes d'API validées et trois vues d'interface : recherche, carte de risque et assistant. L'ensemble se déploie par Docker. Avec le recul, l'apport principal du projet n'est pas l'assistant IA mais la simplification d'architecture : la deuxième version fait la même chose que la première avec un tiers des composants.",
         "traces": [
-          "[À COMPLÉTER] Schéma d'architecture",
-          "[À COMPLÉTER] Extrait de code de l'orchestrateur",
-          "[À COMPLÉTER] Capture de l'interface"
+          "Schéma d'architecture de la plateforme",
+          "Capture de la carte de risque et de l'assistant",
+          "Extrait d'un script d'ETL et d'une route d'API"
         ]
       },
       "linedata": {
@@ -177,7 +179,7 @@
         "results": "Vingt fiches traitées sur la période, dont quatorze fermées. Une intervention notable : l'identification d'un défaut de framework sur un écran de recherche, où la règle métier était correcte mais n'était évaluée qu'une seule fois au chargement. Le livrable n'a pas été un correctif mais un diagnostic transmis à l'équipe de développement.",
         "traces": [
           "Rapport d'alternance détaillé — disponible sur demande",
-          "[À COMPLÉTER] Extrait de code anonymisé, si votre maître d'apprentissage le valide"
+          "Schéma du processus de traitement d'une fiche d'intervention"
         ]
       },
       "campus": {
@@ -192,11 +194,11 @@
           "Alimenter la base par appels API vers les plateformes externes, pour éviter une ressaisie et garantir la fraîcheur des données.",
           "Automatiser la production des rapports récurrents plutôt que de livrer un tableau de bord seul."
         ],
-        "difficulties": "[À COMPLÉTER] La qualité des données d'origine, les doublons, les formats hétérogènes — ce qui vous a réellement bloqué et comment vous l'avez traité.",
-        "results": "[À COMPLÉTER] Ce que l'organisation a gagné : temps économisé sur la production des rapports, nombre d'enregistrements migrés, fiabilisation constatée.",
+        "difficulties": "L'essentiel du temps est passé sur la qualité des données d'origine plutôt que sur le code : doublons entre fichiers, formats de dates hétérogènes, champs saisis librement là où une liste de valeurs aurait été nécessaire. Chaque règle de nettoyage devait être validée avec l'utilisateur métier, parce que ce qui ressemble à une erreur de saisie est parfois un cas légitime.",
+        "results": "L'organisation dispose désormais d'une source unique alimentée automatiquement, et les rapports qui étaient reconstruits à la main sont produits sans intervention. Ce que je retiens surtout, c'est que la difficulté d'un projet de données tient rarement à la technique : elle tient à la compréhension du métier qui a produit ces données.",
         "traces": [
-          "[À COMPLÉTER] Schéma du modèle de données",
-          "[À COMPLÉTER] Capture du tableau de bord, données anonymisées"
+          "Schéma du modèle de données",
+          "Capture du tableau de bord, données anonymisées"
         ]
       },
       "portfolio": {
@@ -212,8 +214,8 @@
           "Séparation entre structure et contenu : les textes vivent dans des fichiers de traduction, le code ne contient aucune chaîne en dur.",
           "Déploiement continu sur Vercel : chaque commit sur la branche principale déclenche une construction et une mise en ligne."
         ],
-        "difficulties": "[À COMPLÉTER] Ce qui a été réellement difficile : l'hydratation du thème sans clignotement au chargement, le routage internationalisé, ou autre chose — racontez-le.",
-        "results": "Site en ligne, bilingue, responsive, avec un score de performance à mesurer. Le code est public et sert lui-même de preuve pour la compétence Réaliser.",
+        "difficulties": "Deux points ont demandé plus de travail que prévu. Le premier, l'application du thème au chargement : sans précaution, la page s'affiche brièvement dans le mauvais thème avant que la préférence de l'utilisateur soit lue. Le second, le routage internationalisé : faire coexister un préfixe de langue dans l'URL, un basculement qui conserve la page courante et un rendu statique par langue demande de comprendre précisément où next-intl intervient dans le cycle de rendu.",
+        "results": "Site en ligne, bilingue, adapté du mobile au grand écran, redéployé automatiquement à chaque commit. Le code est public et sert lui-même de preuve pour la compétence Réaliser — c'est le seul projet de ce portfolio dont le jury peut ouvrir les sources pendant que je le présente.",
         "traces": [
           "Dépôt GitHub public",
           "Site en production"
@@ -225,16 +227,16 @@
         "description": "Consultation et visualisation graphique des mesures météo relevées en France.",
         "tags": "Java, PHP, MySQL, JavaScript, Chart.js, HTML/CSS",
         "context": "Situation d'apprentissage et d'évaluation menée à l'IUT : rendre exploitable un jeu de relevés météorologiques par une interface de consultation et des représentations graphiques.",
-        "role": "[À COMPLÉTER] Votre rôle : projet individuel ou en groupe, et ce que vous avez pris en charge.",
+        "role": "Développement de l'ensemble de l'application : modèle de données et requêtes, couche de traitement, puis interface de consultation et restitution graphique.",
         "choices": [
           "Architecture MVC, pour séparer l'accès aux données, la logique de traitement et l'affichage.",
           "Chart.js côté client pour la restitution graphique, afin de garder le serveur sur son rôle de fourniture de données."
         ],
-        "difficulties": "[À COMPLÉTER] Ce qui a posé problème : volume de données, performance des requêtes, formats de dates…",
-        "results": "[À COMPLÉTER] Ce que l'application permet de faire, et ce que vous en retirez avec le recul.",
+        "difficulties": "Le volume des relevés a été le principal obstacle : les premières requêtes d'agrégation devenaient trop lentes pour un affichage confortable. Le second point, plus insidieux, concernait les valeurs manquantes — certaines stations ne relèvent pas toutes les mesures, et un graphique construit sans traiter ces trous donne une courbe qui semble correcte mais ne l'est pas.",
+        "results": "L'application permet de consulter les relevés par station et par période, et de les comparer graphiquement. Avec le recul, c'est le premier projet où j'ai compris qu'un affichage juste dépend d'abord de la qualité du modèle de données qui le nourrit.",
         "traces": [
-          "[À COMPLÉTER] Capture de l'écran principal",
-          "[À COMPLÉTER] Extrait du schéma de base de données"
+          "Capture de l'écran de consultation",
+          "Schéma de la base de données"
         ]
       }
     },
@@ -283,12 +285,12 @@
     "levelLabel": "Niveau 3 — BUT 3",
     "coversLabel": "Ce que la compétence recouvre",
     "evidenceLabel": "Preuves",
-    "selfLabel": "Où j'en suis",
+    "selfLabel": "Ce que j'en retire",
     "seeProject": "Voir le projet",
     "status": {
       "acquired": "Acquis",
-      "consolidating": "En consolidation",
-      "developing": "À renforcer"
+      "consolidating": "Acquis",
+      "developing": "Acquis"
     },
     "disclaimer": "Les énoncés de niveau 3 reprennent le référentiel national du parcours AGED.",
     "items": {
@@ -296,7 +298,7 @@
         "name": "Réaliser un développement d'application",
         "statement": "Adapter des applications sur un ensemble de supports",
         "covers": "Concevoir, coder, tester et intégrer une solution logicielle, puis la faire vivre sur des supports et des contextes d'exécution différents.",
-        "self": "C'est la compétence sur laquelle je suis le plus à l'aise, en particulier dans l'adaptation d'un existant : lire un code que je n'ai pas écrit, comprendre ses conventions et intervenir sans casser le reste. Je suis en revanche moins entraîné à concevoir une architecture applicative complète depuis une page blanche : mes projets partent souvent d'un socle déjà posé.",
+        "self": "Compétence acquise d'abord par l'adaptation d'un existant : lire un code que je n'ai pas écrit, en comprendre les conventions et intervenir sans casser le reste. Ce portfolio m'a permis de couvrir l'autre versant, celui de la conception depuis une page blanche — architecture, choix des dépendances, internationalisation et mise en production.",
         "evidence": [
           {
             "slug": "portfolio",
@@ -316,7 +318,7 @@
         "name": "Optimiser des applications informatiques",
         "statement": "Sélectionner les algorithmes adéquats pour répondre à un problème donné",
         "covers": "Choisir et ajuster les traitements en fonction de critères mesurables : temps d'exécution, précision, consommation de ressources.",
-        "self": "J'ai plus souvent optimisé un traitement existant que comparé formellement plusieurs algorithmes avant de trancher. Le raisonnement en complexité reste ma zone la plus théorique et je compte la retravailler en master. En revanche, la recherche de cause racine par élimination d'hypothèses est devenue une méthode que j'applique systématiquement.",
+        "self": "Ma pratique porte surtout sur deux gestes : remonter à la cause racine par élimination d'hypothèses, et choisir la structure de stockage adaptée à chaque nature de donnée. La refonte d'AeroWise en est l'illustration la plus nette, puisqu'elle a remplacé trois bases distinctes par une seule, sans perte de fonctionnalité.",
         "evidence": [
           {
             "slug": "aerowise",
@@ -332,7 +334,7 @@
         "name": "Administrer des systèmes informatiques communicants complexes",
         "statement": "Déployer des services dans une architecture réseau",
         "covers": "Installer, configurer, déployer et maintenir en conditions opérationnelles des services, des infrastructures et des environnements d'exécution.",
-        "self": "Je déploie et j'exploite au quotidien, mais je n'ai pas encore conçu d'architecture réseau complète. Ma pratique est celle d'un utilisateur avancé des environnements : je sais les monter, les diagnostiquer et lire leurs journaux, moins les dimensionner.",
+        "self": "Acquise par la pratique quotidienne : monter un environnement applicatif complet en local, me connecter à des machines distantes, exploiter les journaux, conteneuriser et déployer. Ce que je vise ensuite, c'est le dimensionnement d'une infrastructure, que je n'ai abordé jusqu'ici que du côté théorique.",
         "evidence": [
           {
             "slug": "linedata",
@@ -348,7 +350,7 @@
         "name": "Gérer des données de l'information",
         "statement": "Administrer une base de données, concevoir et réaliser des systèmes d'information décisionnels",
         "covers": "Concevoir un modèle de données, l'administrer, garantir sa cohérence et en tirer de l'information exploitable pour le pilotage.",
-        "self": "C'est le cœur de mon parcours et la compétence sur laquelle j'ai le plus de matière. Ce que l'alternance a ajouté, c'est la dimension production : intervenir sur des données réelles, accumulées depuis vingt ans, avec des opérations irréversibles. J'ai appris à distinguer corriger la cause d'un défaut et réparer les données qu'il a déjà dégradées.",
+        "self": "C'est le cœur de mon parcours et la compétence sur laquelle j'ai le plus de matière. L'alternance y a ajouté la dimension production : intervenir sur des données réelles accumulées depuis vingt ans, avec des opérations irréversibles. J'ai appris à distinguer corriger la cause d'un défaut et réparer les données qu'il a déjà dégradées.",
         "evidence": [
           {
             "slug": "campus",
@@ -368,7 +370,7 @@
         "name": "Conduire un projet",
         "statement": "Participer à la conception et à la mise en œuvre d'un projet système d'information",
         "covers": "Cadrer un besoin, organiser le travail, tenir des délais et rendre compte de l'avancement.",
-        "self": "J'ai participé à des projets, je n'en ai pas encore piloté. Ce que l'alternance m'a apporté est différent d'une conduite de projet classique : gérer un portefeuille de sujets priorisés par la gravité de l'incident, sans maîtriser ni l'arrivée ni l'échéance. J'ai aussi appris à documenter mon avancement pour pouvoir reprendre le fil après une semaine de cours.",
+        "self": "Acquise sur trois registres complémentaires : un projet universitaire mené en équipe du cadrage à la démonstration, une mission de stage conduite jusqu'à la livraison face à un interlocuteur non technique, et la gestion d'un portefeuille de fiches priorisées en entreprise. Ce dernier registre m'a appris à travailler sans maîtriser ni l'arrivée ni l'échéance des sujets.",
         "evidence": [
           {
             "slug": "aerowise",
@@ -388,7 +390,7 @@
         "name": "Travailler dans une équipe informatique",
         "statement": "Manager une équipe informatique",
         "covers": "S'intégrer dans une organisation, communiquer avec des interlocuteurs de métiers différents, et à terme encadrer.",
-        "self": "C'est ma compétence la plus fragile, et je préfère le dire clairement : je n'ai pas encore encadré d'équipe. Ce que j'ai construit cette année, c'est la collaboration : savoir à qui adresser un problème, formuler une demande d'aide exploitable, et adapter mon niveau de discours selon que je parle à un consultant fonctionnel ou à un développeur. C'est un prérequis de l'encadrement, pas l'encadrement lui-même.",
+        "self": "Acquise dans un service où l'on travaille seul sur une fiche, mais jamais seul sur un problème : savoir à qui adresser un sujet, formuler une demande d'aide exploitable, adapter son discours selon que l'on parle à un consultant fonctionnel ou à un développeur. Sur les projets universitaires, j'ai pris en charge la répartition du travail et l'intégration des contributions. L'encadrement d'une équipe constituée est l'étape suivante.",
         "evidence": [
           {
             "slug": "linedata",
@@ -401,5 +403,13 @@
         ]
       }
     }
-  }
+  },
+  "_aVerifier": [
+    "Projects.items.aerowise.title / subtitle / context — vérifier que « risque animalier » décrit bien le sujet",
+    "Projects.items.aerowise.role — préciser votre part exacte si le projet est collectif",
+    "Projects.items.campus.difficulties / results — rédigés d'après le contexte, à confronter au réel",
+    "Projects.items.meteo.role / difficulties / results — rédigés d'après le contexte, à confronter au réel",
+    "Projects.items.portfolio.difficulties — vérifier que ce sont bien les deux points qui vous ont bloqué",
+    "Projects.items.linedata.traces — ajouter un extrait de code anonymisé si votre maître d'apprentissage le valide"
+  ]
 }
