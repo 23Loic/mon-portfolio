@@ -27,26 +27,6 @@ npm run build
 npm start
 ```
 
-## Configuration EmailJS
-
-1. Crée un compte sur [emailjs.com](https://www.emailjs.com/)
-2. Ajoute un service email (Gmail)
-3. Crée un template avec les variables : `{{from_name}}`, `{{from_email}}`, `{{message}}`
-4. Remplace les 3 clés dans `src/app/[locale]/contact/page.tsx` :
-   - `YOUR_SERVICE_ID`
-   - `YOUR_TEMPLATE_ID`
-   - `YOUR_PUBLIC_KEY`
-
-## Déploiement sur Vercel
-
-1. Push ton code sur GitHub
-2. Va sur [vercel.com](https://vercel.com) et connecte ton compte GitHub
-3. Importe le repository
-4. Vercel détecte automatiquement Next.js → clique "Deploy"
-5. Ton site est en ligne !
-
-Pour un domaine personnalisé : Settings → Domains → Ajoute ton domaine.
-
 ## Structure
 
 ```
