@@ -11,7 +11,7 @@
   },
   "Home": {
     "location": "Bondy, France",
-    "description": "Computer Science student (Data track) — Apprentice Support Analyst at Linedata. I build solutions at the intersection of data, development, and artificial intelligence.",
+    "description": "Computer Science student (Data track) and Apprentice Support Analyst at Linedata. I build solutions at the intersection of data, development, and artificial intelligence.",
     "enterButton": "Explore",
     "scrollHint": "Portfolio 2026"
   },
@@ -115,7 +115,7 @@
         },
         {
           "icon": "🏀",
-          "label": "Basketball & Weightlifting"
+          "label": "Basketball & sports in general"
         },
         {
           "icon": "🎧",
@@ -123,7 +123,7 @@
         },
         {
           "icon": "✈️",
-          "label": "Travel (soon)"
+          "label": "Travel and exploration"
         }
       ]
     }

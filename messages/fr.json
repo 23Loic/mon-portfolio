@@ -11,7 +11,7 @@
   },
   "Home": {
     "location": "Bondy, France",
-    "description": "Étudiant en BUT Informatique parcours Data — Apprenti Analyste Support chez Linedata. Je conçois des solutions alliant data, développement et intelligence artificielle.",
+    "description": "Étudiant en BUT Informatique parcours Data et Apprenti Analyste Support chez Linedata. Je conçois des solutions alliant data, développement et intelligence artificielle.",
     "enterButton": "Découvrir",
     "scrollHint": "Portfolio 2026"
   },
@@ -115,7 +115,7 @@
         },
         {
           "icon": "🏀",
-          "label": "Basket & Musculation"
+          "label": "Basket & sport en général"
         },
         {
           "icon": "🎧",
@@ -123,7 +123,7 @@
         },
         {
           "icon": "✈️",
-          "label": "Voyages (à venir)"
+          "label": "Voyages et découvertes"
         }
       ]
     }
